@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/cover"
+    android:background="@color/white">
+    
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+        
+	        <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentRight="true"
+		        android:layout_alignParentTop="true"
+		        android:src="@drawable/splash_logo_bg_big"
+	            />
+	        
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:gravity="center_vertical"
+		        >
+	        
+	        
+	        <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:src="@drawable/splash_logo_bg_middle"
+	            />
+	        
+        </RelativeLayout>
+    
+	        
+	        
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:gravity="center_vertical|center_horizontal"
+		        >
+	        
+	        <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/splash_logo"
+	            />
+        
+        </RelativeLayout>
+         <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_marginTop="370dp"
+		        android:gravity="center_horizontal"
+		        >
+	        
+	        <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/slogan"
+	            />
+        
+        </RelativeLayout>
+        
+	        <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentRight="true"
+		        android:layout_marginRight="100dp"
+		        android:layout_marginBottom="150dp"
+		        android:src="@drawable/splash_logo_bg_small"
+	            />
+        </RelativeLayout>
+    
+    
+
+</RelativeLayout>

@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+	android:id="@+id/box"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/super_light_gray"
+    >
+
+    <LinearLayout 
+	        android:id="@+id/spacer"
+        	android:orientation="horizontal"
+	        android:layout_width="match_parent"
+	        android:layout_height="5dp"
+        	android:background="@color/super_light_gray"
+        >
+    </LinearLayout>
+    <LinearLayout 
+	        android:id="@+id/title"
+        	android:orientation="horizontal"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+        	android:background="@color/super_light_gray"
+        >
+			<ImageView
+				android:id="@+id/clear_cache_left"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="10dp"
+				android:src="@drawable/setting_button_left_part"
+				/>
+        
+	    <TextView
+	        android:id="@+id/title_text"
+	        android:gravity="center_vertical"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+			android:background="@drawable/button_2_back" />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/answer"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        android:background="@color/super_light_gray"
+         >
+		<View
+			android:id="@+id/spacer_left"
+			android:layout_width="20dp"
+			android:layout_height="0dp"
+			/>
+    	<TextView
+        android:id="@+id/answer_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+	</LinearLayout>
+	
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/main_color"
+        android:gravity="center">
+
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="20dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="消息"
+                android:textColor="@color/tab_selected_color"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="聊天"
+                android:textColor="@color/tab_unselected_color"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:background="@color/main_color">
+
+
+        <ImageView
+            android:id="@+id/add_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/add_icon" />
+
+        <ImageView
+            android:id="@+id/contact_list"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:src="@drawable/contact_icon" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+	        android:id="@+id/spacer"
+        	android:orientation="horizontal"
+	        android:layout_width="match_parent"
+	        android:layout_height="10dp"
+        	android:background="@color/super_light_gray"
+        >
+    </LinearLayout>
+    <LinearLayout
+		android:id="@+id/wider_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+    
+
+    <LinearLayout
+		android:id="@+id/radio_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/image_head"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/thumbnail_small" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/top_part"
+                android:layout_width="match_parent"
+                android:layout_height="25dp" >
+
+                <TextView
+                    android:id="@+id/_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:text="搜狐体育"
+                    android:visibility="invisible"
+                    android:textSize="20sp" />
+                
+                <TextView
+                    android:id="@+id/radio_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:text="搜狐体育"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/favorite_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="0"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/image_favorite"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_toLeftOf="@id/favorite_count"
+                    android:src="@drawable/gray_heart" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/image_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:src="@color/gray" />
+
+            <TextView
+                android:id="@+id/radio_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:maxLines="1"
+                android:text="科比成历史铁王"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+	    <LinearLayout
+	        android:id="@+id/favorite_button"
+	        android:layout_width="100dp"
+	        android:layout_height="match_parent"
+	        android:layout_gravity="center"
+	        android:background="@color/main_color"
+	        android:visibility ="invisible"
+	        android:orientation="horizontal" >
+	     		<TextView
+	        		android:id="@+id/favorite_text"
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_marginLeft="20dp"
+	                android:gravity="center_vertical|center_horizontal"
+	                android:maxLines="1"
+	                android:text="收藏"
+	                android:textColor="@color/white"
+	                android:textSize="20sp" />
+	    </LinearLayout>
+	</LinearLayout>
+	
+	   <ImageView
+                android:id="@+id/bottom_right_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:src="@color/gray" />
+	
+   </LinearLayout>

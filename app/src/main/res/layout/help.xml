@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/super_light_gray" >
+
+    
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+	    android:gravity="center_vertical"
+    	android:background="@color/main_color"
+        >
+        
+        <ImageView
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+	        android:gravity="center_vertical"
+            android:src="@drawable/back"
+            />
+        
+        <TextView
+            android:id ="@+id/help_title"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:textSize="30sp"
+	        android:textColor="@color/white"
+	        android:text="@string/help"
+	        android:gravity="center_horizontal|center_vertical"
+		>
+        </TextView>
+        
+        
+    </RelativeLayout>
+    
+		<LinearLayout
+			android:layout_marginTop="10dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			>
+			<LinearLayout
+				android:id="@+id/button_question_1"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:background="@color/white"
+				>
+				
+		        <TextView
+			        android:layout_width="match_parent"
+			        android:layout_height="40dp"
+			        android:textSize="20sp"
+			        android:textColor="@color/dark_gray"
+			        android:text="@string/question_1"
+					android:gravity="center_vertical"
+				>
+		        </TextView>
+		        
+        	</LinearLayout>
+			<LinearLayout
+					android:id="@+id/container_1"
+				android:layout_marginTop="10dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				>
+		        <TextView
+					android:id="@+id/answer_1"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:textSize="20sp"
+			        android:textColor="@color/dark_gray"
+			    	android:text="@string/answer_1"
+				>
+		        </TextView>
+        	</LinearLayout>
+        </LinearLayout>
+        
+		
+		<LinearLayout
+			android:layout_marginTop="10dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			>
+			<LinearLayout
+				android:id="@+id/button_question_2"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:background="@color/white"
+				>
+				
+		        <TextView
+			        android:layout_width="match_parent"
+			        android:layout_height="40dp"
+			        android:textSize="20sp"
+			        android:textColor="@color/dark_gray"
+			        android:text="@string/question_2"
+					android:gravity="center_vertical"
+				>
+		        </TextView>
+		        
+        	</LinearLayout>
+			<LinearLayout
+				android:layout_marginTop="10dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				>
+		        <TextView
+					android:id="@+id/answer_2"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:textSize="20sp"
+			        android:textColor="@color/dark_gray"
+				    android:text="@string/answer_2"
+				>
+		        </TextView>
+        	</LinearLayout>
+        </LinearLayout>
+        
+		
+		<LinearLayout
+			android:layout_marginTop="10dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			>
+			<LinearLayout
+				android:id="@+id/button_question_3"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:background="@color/white"
+				>
+				
+		        <TextView
+			        android:layout_width="match_parent"
+			        android:layout_height="40dp"
+			        android:textSize="20sp"
+			        android:textColor="@color/dark_gray"
+			        android:text="@string/question_3"
+					android:gravity="center_vertical"
+				>
+		        </TextView>
+		        
+        	</LinearLayout>
+			<LinearLayout
+				android:layout_marginTop="10dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				>
+		        <TextView
+					android:id="@+id/answer_3"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:textSize="20sp"
+			        android:textColor="@color/dark_gray"
+			    	android:text="@string/answer_3"
+				>
+		        </TextView>
+        	</LinearLayout>
+        </LinearLayout>
+        
+		
+		<LinearLayout
+			android:layout_marginTop="10dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			>
+			<LinearLayout
+				android:id="@+id/button_question_4"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:background="@color/white"
+				>
+				
+		        <TextView
+			        android:layout_width="match_parent"
+			        android:layout_height="40dp"
+			        android:textSize="20sp"
+			        android:textColor="@color/dark_gray"
+			        android:text="@string/question_4"
+					android:gravity="center_vertical"
+				>
+		        </TextView>
+		        
+        	</LinearLayout>
+			<LinearLayout
+				android:layout_marginTop="10dp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				>
+		        <TextView
+					android:id="@+id/answer_4"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:textSize="20sp"
+			        android:textColor="@color/dark_gray"
+			        android:text="@string/answer_4"
+				>
+		        </TextView>
+        	</LinearLayout>
+        </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/super_light_gray" >
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+	    android:gravity="center_vertical"
+    	android:background="@color/main_color"
+        >
+        
+        <ImageView
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+	        android:gravity="center_horizontal|center_vertical"
+            />
+        
+        <TextView
+            android:id ="@+id/feedback_title"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:textSize="30sp"
+	        android:textColor="@color/white"
+	        android:text="@string/feedback"
+	        android:gravity="center_horizontal|center_vertical"
+		>
+        </TextView>
+        
+        <TextView
+            android:id="@+id/button_send"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+	        android:textSize="30sp"
+	        android:textColor="@color/white"
+	        android:text="@string/send"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_marginRight="10dp"
+	        android:gravity="center_horizontal|center_vertical"
+            />
+        
+    </RelativeLayout>
+    
+    <RelativeLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="40dp"
+	        android:layout_marginLeft="40dp"
+	        android:layout_marginRight="40dp"
+	        android:layout_marginBottom="40dp"
+        >
+		    <EditText
+		        android:id="@+id/feed_back_text"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:inputType="textMultiLine"
+		        android:layout_alignParentLeft="true"
+		        android:layout_alignParentRight="true"
+		        android:layout_alignParentTop="true"
+		        android:layout_alignParentBottom="true"
+		        android:textSize="20sp"
+		        android:textColor="@color/dark_gray"
+    			android:background="@color/super_light_gray" 
+		   		android:hint="@string/feedback_hint"
+		  		android:gravity="left|top"
+		        />
+	 </RelativeLayout>
+    
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ddicar.melonradio"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="10" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WEAK_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CFNetwork.framework" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_logo"
+        android:label="@string/app_name">
+
+        <!-- 地图 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="762d94fd76ac28b13830d45f41e8e6dd" />
+        <!-- for signed key -->
+
+        <!--
+            android:value="762d94fd76ac28b13830d45f41e8e6dd" 
+            android:value="171c3f6ce494006f38fb4c4514e9539e" />
+ 			android:value="794794e30ec81f4ee938da609ad5ed8f" />
+
+			762d94fd76ac28b13830d45f41e8e6dd  dd是正式发布的打包code
+            794794e30ec81f4ee938da609ad5ed8f  8f结尾的是 Mac的code
+            488b2a7d3a9d4032300835c607bb3db8  b8结尾的是 Windows的code
+            后续接手者需要在amap.com上重新获取认证码。
+        -->
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--  
+        <activity
+            android:name="DdicarMapActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+            -->
+        <activity
+            android:name="GotyeChatRoomActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <!-- MOBsharesdk分享回调 -->
+        <activity
+            android:name="cn.sharesdk.framework.ShareSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 亲加  聊天室 -->
+        <service
+            android:name="com.gotye.service.AiLiaoService"
+            android:enabled="true" />
+    </application>
+
+</manifest>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/super_light_gray">
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+	    android:gravity="center_vertical"
+    	android:background="@color/main_color"
+        >
+        
+        <ImageView
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+	        android:gravity="center_vertical"
+            android:src="@drawable/back"
+            />
+        
+        <TextView
+            android:id ="@+id/history_title"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:textSize="30sp"
+	        android:textColor="@color/white"
+	        android:text="@string/history"
+	        android:gravity="center_horizontal|center_vertical"
+		>
+        </TextView>
+        
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="200dp"
+        >
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+	   		android:gravity="center_horizontal"
+			>
+        
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:textSize="20sp"
+    			android:textColor="@color/main_color"
+			    android:text="@string/bind_hint_1"
+	    		android:gravity="center_horizontal"
+			    />
+		    
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+	   		android:gravity="center_horizontal"
+			>
+			<TextView 
+			    android:layout_marginTop="30dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:textSize="20sp"
+    			android:textColor="@color/main_color"
+			    android:text="@string/bind_hint_2"
+	    		android:gravity="center_horizontal"
+			    />
+		</LinearLayout>
+    </RelativeLayout>
+		
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    	android:background="@color/super_light_gray"
+        >
+		
+		<LinearLayout
+				android:id="@+id/button_bind"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+	   		android:gravity="center_horizontal"
+			>
+		
+			<TextView
+				android:id="@+id/bind_middle"
+				android:layout_width="550dp"
+				android:layout_height="wrap_content"
+				android:text="@string/button_bind"
+				android:textColor="@color/white"
+				android:gravity="center_vertical|center_horizontal"
+	        	android:background="@drawable/button_body"
+			    android:textSize="22dp"
+				/>
+
+		</LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

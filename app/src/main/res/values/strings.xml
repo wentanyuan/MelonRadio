@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">东瓜电台</string>
+
+    <string name="action_settings">设置</string>
+
+    <string name="first_screen">第一屏</string>
+    <string name="second_screen">第二屏</string>
+    <string name="third_screen">第三屏</string>
+
+    <string name="enter_app">进入应用</string>
+    <string name="button_login">登录</string>
+    <string name="search_hint">搜索</string>
+    <string name="qr_code_scan_title">扫二维码</string>
+
+    <string name="label_social_app_login">社交应用登录</string>
+    <string name="label_weibo_login">微博账号登录</string>
+    <string name="label_wechat_login">微信账号登录</string>
+    <string name="information">消息</string>
+    <string name="waybill">运单</string>
+    <string name="my">我的</string>
+    <string name="label_radio_title">日报列表</string>
+
+    <string name="personal_settings">个人中心</string>
+    <string name="custom">定制日报</string>
+    <string name="voice">声音设定</string>
+    <string name="your_voice">你的声音</string>
+    <string name="hardware_bind">硬件关联</string>
+    <string name="settings">设置中心</string>
+    <string name="photo_upload">拍 照</string>
+    <!--     <string name="click_speak">点击发言</string> -->
+
+    <string name="label_user_name">手机号</string>
+    <string name="label_password">密码</string>
+    <string name="label_confirm_password">确认密码</string>
+    <string name="label_captcha">验证</string>
+    <string name="label_phone">+86</string>
+    <string name="confirm">提交</string>
+    <string name="save">保存</string>
+    <string name="button_register">注  册</string>
+    <string name="share">分享</string>
+    <string name="vehicle_brand">车辆品牌</string>
+    <string name="base_information">基本信息</string>
+
+    <string name="label_forget_password">忘记密码</string>
+    <string name="label_find_password">找回密码</string>
+    <string name="label_register">注  册</string>
+    <string name="label_reset_password">重置密码</string>
+    <string name="label_terms">使用条款</string>
+    <string name="label_input_phone_number">请输入手机号</string>
+    <string name="label_input_bound_phone_number">请输入手机号</string>
+    <string name="telephone_code">+86</string>
+    <string name="label_captcha_code">请输入验证码</string>
+    <string name="label_input_new_password">请输入新密码</string>
+    <string name="button_gain_captcha">获取验证码</string>
+    <string name="label_password_hint">输入6-20位字符密码</string>
+    <string name="label_read_terms">点击上面按钮“注册”即表示您同意</string>
+    <string name="validation">验证</string>
+    <string name="label_input_password">请设置登录密码</string>
+    <string name="label_input_password_again">请再次输入</string>
+    <string name="label_name">姓名</string>
+    <string name="label_input_name">请输入您的真实姓名</string>
+    <string name="label_service_protocol">服务协议</string>
+
+
+    <string name="hint_input_user_name">请输入您的手机号</string>
+    <string name="hint_input_password">请输入您的密码</string>
+
+    <string name="history">历史提醒</string>
+    <string name="map">地图</string>
+    <string name="feedback_hint">请您在这里填写对东瓜电台的意见，我们将不断改进，感谢支持。</string>
+
+
+    <string name="clear_cache">清理缓存</string>
+    <string name="feedback">反馈建议</string>
+    <string name="help">使用帮助</string>
+    <string name="about">关于我们</string>
+    <string name="logout">退出登录</string>
+    <string name="cancel">取消</string>
+
+    <string name="truck_status">车况报告</string>
+    <string name="truck_check">车况检查</string>
+    <string name="route_plan">路线请求</string>
+    <string name="route">路线查看</string>
+    <string name="route_list">路线列表</string>
+    <string name="driving_habit">驾驶习惯</string>
+    <string name="chat_room">聊天室</string>
+    <string name="blank">新建</string>
+    <string name="new_chat_room">新建房间</string>
+    <string name="new_chat_room_hint">请输入房间名</string>
+
+
+    <string name="favorite">日报收藏列表</string>
+    <string name="send">发送</string>
+
+    <string name="voice_setting">声音设定</string>
+    <string name="setting">设定</string>
+    <string name="software_setting">软件设置</string>
+    <string name="dairy">日报列表</string>
+    <string name="dairy_channel">定制你的专属频道</string>
+    <string name="dairy_subscribe">日报订阅</string>
+    <string name="button_finish">完成</string>
+
+    <string name="bind_hint_1">您当前尚未绑定车机</string>
+    <string name="bind_hint_2">点击按钮绑定属于你的车机</string>
+    <string name="button_bind">绑定车机</string>
+    <string name="sn_hint">请输入设备SN号</string>
+    <string name="Models">请选择车型车系</string>
+
+    <string name="about_text">我们不是一个硬件生产企业，我们会生产出来未来的汽车；我们不是一个移动应用开发商，我们会做出最炫最酷的车・生活的应用服务；我们不是一个解决方案提供商，我们会提供可供和车相关的最广泛的应用平台接入方案；这样的项目你还不动心吗？这是一个最具包容力的团队，有美国的技术大牛，有商业模式的营运高手，还有活跃的资本运作；这是一个最温暖的家庭，完全没有年龄、等级的界限。</string>
+
+    <string name="question_1">1.如何找回密码？</string>
+    <string name="question_2">2.如何定制日报类型？</string>
+    <string name="question_3">3.如何收藏日报？</string>
+    <string name="question_4">4.如何绑定车机？</string>
+
+    <string name="answer_1">点击找回密码\n密码2</string>
+    <string name="answer_2">定制日报类型</string>
+    <string name="answer_3">收藏日报</string>
+    <string name="answer_4">绑定车机</string>
+
+    <!-- wechat三方登录 -->
+    <string name="userid_found">用户信息已存在，正在跳转登录操作…</string>
+    <string name="logining">使用%s帐号登录中…</string>
+    <string name="auth_cancel">授权操作已取消</string>
+    <string name="auth_error">授权操作遇到错误，请阅读Logcat输出</string>
+    <string name="auth_complete">授权成功，正在跳转登录操作…</string>
+
+    <string name="channel_1">新闻</string>
+    <string name="channel_2">财经</string>
+    <string name="channel_3">体育</string>
+    <string name="channel_4">汽车</string>
+    <string name="channel_5">科技</string>
+    <string name="channel_6">军事</string>
+    <string name="channel_7">娱乐</string>
+    <string name="channel_8">音乐</string>
+    <string name="channel_9">游戏</string>
+    <string name="channel_10">房产</string>
+    <string name="channel_11">教育</string>
+
+    <string name="guide_1">无忧行进</string>
+    <string name="guide_1_2">特殊路况</string>
+    <string name="guide_1_3">情报共享</string>
+
+    <string name="guide_2">路途伴侣</string>
+    <string name="guide_2_2">企业司机</string>
+    <string name="guide_2_3">交流平台</string>
+
+    <string name="guide_3">听我所听</string>
+    <string name="guide_3_2">专属打造</string>
+    <string name="guide_3_3">操作方式</string>
+</resources>
