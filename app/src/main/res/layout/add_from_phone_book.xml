@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/main_color"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingBottom="5px"
+            android:paddingLeft="50px"
+            android:paddingTop="5px"
+            android:text="手机通讯录"
+            android:textSize="13sp" />
+
+        <RelativeLayout
+            android:id="@+id/cancel"
+            android:layout_width="30dp"
+            android:layout_height="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:src="@color/tab_unselected_color"
+                android:text="&lt;"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:layout_width="330dp"
+                android:layout_height="30dp"
+                android:background="@drawable/white_border_round_rect">
+
+            </RelativeLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="330dp"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:hint="搜索手机通讯录"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/search_button_2" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.33dp"
+        android:background="@color/gray" />
+
+    <ListView
+        android:id="@+id/phone_book_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="@null">
+
+
+    </ListView>
+
+</LinearLayout>

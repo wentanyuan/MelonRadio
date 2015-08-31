@@ -1,18 +1,15 @@
 package com.ddicar.melonradio.view;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 
+import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 
 
-public class WaybillView extends AbstractView {
+public class ContactView extends AbstractView {
 
 
     @Override
@@ -22,7 +19,13 @@ public class WaybillView extends AbstractView {
 
     @Override
     public void auto() {
-
+        RelativeLayout cancel = (RelativeLayout)view.findViewById(R.id.cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.instance.switchScreen(ViewFlyweight.CONTACT_LIST_VIEW);
+            }
+        });
     }
 
     @Override
@@ -32,7 +35,7 @@ public class WaybillView extends AbstractView {
 
     @Override
     public void onBackPressed() {
-
+        MainActivity.instance.switchScreen(ViewFlyweight.CONTACT_LIST_VIEW);
     }
 
     @Override

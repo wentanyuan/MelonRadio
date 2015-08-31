@@ -66,6 +66,7 @@
 
     <string name="hint_input_user_name">请输入您的手机号</string>
     <string name="hint_input_password">请输入您的密码</string>
+    <string name="hint_input_phone_plate_name">手机号/车牌号/姓名</string>
 
     <string name="history">历史提醒</string>
     <string name="map">地图</string>

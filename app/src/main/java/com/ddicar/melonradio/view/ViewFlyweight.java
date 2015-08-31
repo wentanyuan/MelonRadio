@@ -1,6 +1,7 @@
 package com.ddicar.melonradio.view;
 
 import com.ddicar.melonradio.R;
+import com.ddicar.melonradio.model.History;
 
 public class ViewFlyweight {
 
@@ -43,7 +44,19 @@ public class ViewFlyweight {
 
 
     public static final ContactListView CONTACT_LIST_VIEW = new ContactListView();
-	
+    public static final AddContactView ADD_CONTACT_VIEW = new AddContactView();
+    public static final AddFromPhoneBookView ADD_FROM_PHONE_BOOK = new AddFromPhoneBookView();
+    public static final CreateChatRoomView CREATE_CHAT_ROOM = new CreateChatRoomView();
+    public static final ChatRoomView CHAT_ROOM = new ChatRoomView();
+    public static final ContactView CONTACT_VIEW = new ContactView();
+    public static final InviteView INVITE = new InviteView();
+    public static final VerificationView VERIFICATION = new VerificationView();
+
+
+    public static final NewFriendsView NEW_FRIENDS = new NewFriendsView();
+    public static final InvitationView INVITATION = new InvitationView();
+    public static final HistoryGroupView HISTORY_GROUP = new HistoryGroupView();
+
 	public static void init() {
 
 		ABOUT.init(R.layout.about);
@@ -83,5 +96,17 @@ public class ViewFlyweight {
 		INFO_VIEW.init(R.layout.information);
 
         CONTACT_LIST_VIEW.init(R.layout.contact_list);
+        ADD_CONTACT_VIEW.init(R.layout.add_contact);
+        ADD_FROM_PHONE_BOOK.init(R.layout.add_from_phone_book);
+        CREATE_CHAT_ROOM.init(R.layout.create_chat_room);
+        CHAT_ROOM.init(R.layout.chat_room);
+        CONTACT_VIEW.init(R.layout.contact);
+
+        INVITE.init(R.layout.invite);
+        VERIFICATION.init(R.layout.verification);
+
+        NEW_FRIENDS.init(R.layout.new_friends);
+        INVITATION.init(R.layout.invitation_of_home);
+        HISTORY_GROUP.init(R.layout.history_group);
 	}
 }

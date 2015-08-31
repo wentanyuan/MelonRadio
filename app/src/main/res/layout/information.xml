@@ -46,8 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
-        android:gravity="center_vertical"
-        android:background="@color/main_color">
+        android:gravity="center_vertical">
 
 
         <ImageView
@@ -65,4 +64,72 @@
 
     </LinearLayout>
 
+
+    <RelativeLayout
+        android:id="@+id/dialog"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:background="@color/white"
+        android:visibility="invisible"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:gravity="center_horizontal"
+            >
+
+            <LinearLayout
+                android:id="@+id/create_chat_room"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="100dp"
+                android:orientation="vertical"
+                >
+
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/add_chat_room_icon"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="创建聊天室"
+                    android:textColor="@color/main_color"
+                    />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/add_friend"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/new_friend_icon"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="添加好友"
+                    android:textColor="@color/main_color"
+                    />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
 </RelativeLayout>

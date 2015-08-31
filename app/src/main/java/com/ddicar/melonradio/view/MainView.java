@@ -29,6 +29,7 @@ public class MainView extends AbstractView {
         content = (RelativeLayout) view.findViewById(R.id.content);
         content.removeAllViews();
         content.addView(ViewFlyweight.INFO_VIEW.view);
+        ViewFlyweight.INFO_VIEW.auto();
 
         info = (RelativeLayout) view.findViewById(R.id.information_layout);
 
