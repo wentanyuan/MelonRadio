@@ -3,6 +3,7 @@ package com.ddicar.melonradio.view;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.ddicar.melonradio.R;
@@ -17,6 +18,10 @@ public class MainView extends AbstractView {
     private RelativeLayout waybill;
     private RelativeLayout map;
     private RelativeLayout my;
+    private ImageView infoImage;
+    private ImageView waybillImage;
+    private ImageView mapImage;
+    private ImageView myImage;
 
     @Override
     public void onSwitchOff() {
@@ -31,6 +36,7 @@ public class MainView extends AbstractView {
 
         info = (RelativeLayout) view.findViewById(R.id.information_layout);
 
+        infoImage = (ImageView) view.findViewById(R.id.information_image);
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +47,7 @@ public class MainView extends AbstractView {
 
 
         waybill = (RelativeLayout) view.findViewById(R.id.waybill_layout);
+        waybillImage = (ImageView) view.findViewById(R.id.waybill_image);
 
         waybill.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +59,7 @@ public class MainView extends AbstractView {
 
 
         map = (RelativeLayout) view.findViewById(R.id.map_layout);
+        mapImage = (ImageView) view.findViewById(R.id.map_image);
 
         map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +70,7 @@ public class MainView extends AbstractView {
         });
 
         my = (RelativeLayout) view.findViewById(R.id.my_layout);
+        myImage = (ImageView) view.findViewById(R.id.my_image);
         my.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,24 +84,41 @@ public class MainView extends AbstractView {
         content.removeAllViews();
         content.addView(ViewFlyweight.MY_VIEW.view);
         ViewFlyweight.MY_VIEW.auto();
+        mapImage.setImageResource(R.drawable.map_icon_normal);
+        waybillImage.setImageResource(R.drawable.waybill_icon_normal);
+        myImage.setImageResource(R.drawable.my_icon_press);
+        infoImage.setImageResource(R.drawable.chat_icon_normal);
     }
 
     public void gotoMapView() {
         content.removeAllViews();
         content.addView(ViewFlyweight.MAP_VIEW.view);
         ViewFlyweight.MAP_VIEW.auto();
+        mapImage.setImageResource(R.drawable.map_icon_press);
+        waybillImage.setImageResource(R.drawable.waybill_icon_normal);
+        myImage.setImageResource(R.drawable.my_icon_normal);
+        infoImage.setImageResource(R.drawable.chat_icon_normal);
     }
 
     public void gotoWayBillView() {
         content.removeAllViews();
         content.addView(ViewFlyweight.WAY_BILL_VIEW.view);
         ViewFlyweight.WAY_BILL_VIEW.auto();
+
+        mapImage.setImageResource(R.drawable.map_icon_normal);
+        waybillImage.setImageResource(R.drawable.wallbell_icon_press);
+        myImage.setImageResource(R.drawable.my_icon_normal);
+        infoImage.setImageResource(R.drawable.chat_icon_normal);
     }
 
     public void gotoInfoView() {
         content.removeAllViews();
         content.addView(ViewFlyweight.INFO_VIEW.view);
         ViewFlyweight.INFO_VIEW.auto();
+        mapImage.setImageResource(R.drawable.map_icon_normal);
+        waybillImage.setImageResource(R.drawable.waybill_icon_normal);
+        myImage.setImageResource(R.drawable.my_icon_normal);
+        infoImage.setImageResource(R.drawable.chat_icon_press);
     }
 
     @Override
