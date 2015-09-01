@@ -13,7 +13,7 @@ public class ViewFlyweight {
 	public static final DairyChannelView DAIRY_CHANNEL = new DairyChannelView();
 	public static final DairyView DAIRY = new DairyView();
 	public static final FavoriteView FAVORITE = new FavoriteView();
-	public static final FeedbackView FEEDBACK = new FeedbackView();
+
 	public static final ForgetPasswordView FORGET_PASSWORD = new ForgetPasswordView();
 	public static final ResetPasswordView RESET_PASSWORD = new ResetPasswordView();
 	public static final HardwareBindView HARDWARE_BIND = new HardwareBindView();
@@ -56,6 +56,13 @@ public class ViewFlyweight {
     public static final NewFriendsView NEW_FRIENDS = new NewFriendsView();
     public static final InvitationView INVITATION = new InvitationView();
     public static final HistoryGroupView HISTORY_GROUP = new HistoryGroupView();
+
+	public static final DriveTrackView DRIVE_TRACK = new DriveTrackView();
+	public static final SettingsView SETTINGS = new SettingsView();
+	public static final MyAccountView MY_ACCOUNT = new MyAccountView();
+
+    public static final ChangePasswordView CHANGE_PASSWORD = new ChangePasswordView();
+    public static final FeedbackView FEEDBACK = new FeedbackView();
 
 	public static void init() {
 
@@ -108,5 +115,15 @@ public class ViewFlyweight {
         NEW_FRIENDS.init(R.layout.new_friends);
         INVITATION.init(R.layout.invitation_of_home);
         HISTORY_GROUP.init(R.layout.history_group);
+
+
+
+        DRIVE_TRACK.init(R.layout.drive_track);
+		SETTINGS.init(R.layout.settings);
+		MY_ACCOUNT.init(R.layout.my_account);
+
+
+        CHANGE_PASSWORD.init(R.layout.change_password);
+        FEEDBACK.init(R.layout.feedback);
 	}
 }

@@ -27,9 +27,7 @@ public class MainView extends AbstractView {
     public void auto() {
 
         content = (RelativeLayout) view.findViewById(R.id.content);
-        content.removeAllViews();
-        content.addView(ViewFlyweight.INFO_VIEW.view);
-        ViewFlyweight.INFO_VIEW.auto();
+        gotoInfoView();
 
         info = (RelativeLayout) view.findViewById(R.id.information_layout);
 
@@ -37,9 +35,7 @@ public class MainView extends AbstractView {
             @Override
             public void onClick(View v) {
 
-                content.removeAllViews();
-                content.addView(ViewFlyweight.INFO_VIEW.view);
-                ViewFlyweight.INFO_VIEW.auto();
+                gotoInfoView();
             }
         });
 
@@ -50,9 +46,7 @@ public class MainView extends AbstractView {
             @Override
             public void onClick(View v) {
 
-                content.removeAllViews();
-                content.addView(ViewFlyweight.WAY_BILL_VIEW.view);
-                ViewFlyweight.WAY_BILL_VIEW.auto();
+                gotoWayBillView();
             }
         });
 
@@ -63,9 +57,7 @@ public class MainView extends AbstractView {
             @Override
             public void onClick(View v) {
 
-                content.removeAllViews();
-                content.addView(ViewFlyweight.MAP_VIEW.view);
-                ViewFlyweight.MAP_VIEW.auto();
+                gotoMapView();
             }
         });
 
@@ -73,12 +65,34 @@ public class MainView extends AbstractView {
         my.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                content.removeAllViews();
-                content.addView(ViewFlyweight.MY_VIEW.view);
-                ViewFlyweight.MY_VIEW.auto();
+                gotoMyView();
             }
         });
 
+    }
+
+    public void gotoMyView() {
+        content.removeAllViews();
+        content.addView(ViewFlyweight.MY_VIEW.view);
+        ViewFlyweight.MY_VIEW.auto();
+    }
+
+    public void gotoMapView() {
+        content.removeAllViews();
+        content.addView(ViewFlyweight.MAP_VIEW.view);
+        ViewFlyweight.MAP_VIEW.auto();
+    }
+
+    public void gotoWayBillView() {
+        content.removeAllViews();
+        content.addView(ViewFlyweight.WAY_BILL_VIEW.view);
+        ViewFlyweight.WAY_BILL_VIEW.auto();
+    }
+
+    public void gotoInfoView() {
+        content.removeAllViews();
+        content.addView(ViewFlyweight.INFO_VIEW.view);
+        ViewFlyweight.INFO_VIEW.auto();
     }
 
     @Override

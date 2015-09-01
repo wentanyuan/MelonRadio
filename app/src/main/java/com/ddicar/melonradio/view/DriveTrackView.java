@@ -9,9 +9,9 @@ import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 
 
-public class FeedbackView extends AbstractView {
-
+public class DriveTrackView extends AbstractView {
     private RelativeLayout back;
+
     @Override
     public void onSwitchOff() {
 
@@ -26,7 +26,8 @@ public class FeedbackView extends AbstractView {
 
             @Override
             public void onClick(View arg0) {
-                MainActivity.instance.switchScreen(ViewFlyweight.SETTINGS);
+                MainActivity.instance.switchScreen(ViewFlyweight.MAIN_VIEW);
+                ViewFlyweight.MAIN_VIEW.gotoMyView();
             }
         });
     }

@@ -6,7 +6,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -28,10 +27,17 @@ public class MyView extends AbstractView {
 
     private TextView userName;
 
-    RelativeLayout baseInformation;
-    ImageView headImage;
+    ImageView avatar;
     private ImageLoader imageLoader;
+
+
+    RelativeLayout baseInformation;
     private DisplayImageOptions options;
+    private RelativeLayout driveTrack;
+    private RelativeLayout myAccount;
+    private RelativeLayout settings;
+
+
 
     @Override
     public void onSwitchOff() {
@@ -95,7 +101,7 @@ public class MyView extends AbstractView {
         userName.setText(user.getUser().name);
         baseInformation = (RelativeLayout) view.findViewById(
                 R.id.base_information);
-        headImage = (ImageView) view.findViewById(
+        avatar = (ImageView) view.findViewById(
                 R.id.head_image);
         baseInformation.setOnClickListener(new OnClickListener() {
             @Override
@@ -105,9 +111,35 @@ public class MyView extends AbstractView {
             }
         });
 
+        driveTrack = (RelativeLayout)view.findViewById(R.id.driving_track);
+        driveTrack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.instance.switchScreen(ViewFlyweight.DRIVE_TRACK);
+            }
+        });
+
+        myAccount = (RelativeLayout)view.findViewById(R.id.my_account);
+        myAccount.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.instance.switchScreen(ViewFlyweight.MY_ACCOUNT);
+            }
+        });
+
+
+        settings = (RelativeLayout)view.findViewById(R.id.settings);
+        settings.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.instance.switchScreen(ViewFlyweight.SETTINGS);
+            }
+        });
+
+
         if (user.getUser().pic != null) {
             System.out.println("reloading pic");
-            imageLoader.displayImage(user.getUser().pic, headImage, options);
+            imageLoader.displayImage(user.getUser().pic, avatar, options);
         } else {
             System.out.println("pic is null.");
         }

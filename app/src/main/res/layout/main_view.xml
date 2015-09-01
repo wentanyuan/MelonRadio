@@ -11,9 +11,19 @@
         android:layout_height="600dp">
     </RelativeLayout>
   	
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.25dp"
+        android:background="@color/gray"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        />
+
+
   	<LinearLayout  
         android:layout_width="match_parent"  
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:background="#FFFFFF" >  
@@ -32,8 +42,8 @@
   
                 <ImageView  
                     android:id="@+id/information_image"  
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center_horizontal"  
                     android:src="@drawable/chat_icon_press" />  
   
@@ -42,7 +52,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"  
-                    android:text="消息"  
+                    android:text="消息"
+                    android:textSize="11sp"
                     android:textColor="#08335E" />  
             </LinearLayout>  
         </RelativeLayout>  
@@ -61,8 +72,8 @@
   
                 <ImageView  
                     android:id="@+id/waybill_image"  
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center_horizontal"  
                     android:src="@drawable/waybill_icon_normal" />  
   
@@ -71,7 +82,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"  
-                    android:text="运单"  
+                    android:text="运单"
+                    android:textSize="11sp"
                     android:textColor="#7F7F7F" />  
             </LinearLayout>  
         </RelativeLayout>  
@@ -91,8 +103,8 @@
 
                 <ImageView
                     android:id="@+id/map_image"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/map_icon_normal" />
 
@@ -101,7 +113,8 @@
                     android:layout_width="wrap_content"  
                     android:layout_height="wrap_content"  
                     android:layout_gravity="center_horizontal"  
-                    android:text="地图"  
+                    android:text="地图"
+                    android:textSize="11sp"
                     android:textColor="#7F7F7F" />  
             </LinearLayout>  
         </RelativeLayout>  
@@ -121,8 +134,8 @@
   
                 <ImageView  
                     android:id="@+id/my_image"  
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center_horizontal"  
                     android:src="@drawable/my_icon_normal" />  
   
@@ -131,7 +144,8 @@
                     android:layout_width="wrap_content"  
                     android:layout_height="wrap_content"  
                     android:layout_gravity="center_horizontal"  
-                    android:text="我的"  
+                    android:text="我的"
+                    android:textSize="11sp"
                     android:textColor="#7F7F7F" />  
             </LinearLayout>  
         </RelativeLayout>  

@@ -9,7 +9,7 @@ import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 
 
-public class FeedbackView extends AbstractView {
+public class ChangePasswordView extends AbstractView {
 
     private RelativeLayout back;
     @Override

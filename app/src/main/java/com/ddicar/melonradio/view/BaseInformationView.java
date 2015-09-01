@@ -14,7 +14,7 @@ import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 
 public class BaseInformationView extends AbstractView {
-	private ImageView back;
+	private RelativeLayout back;
 
 	@Override
 	public void onSwitchOff() {
@@ -25,31 +25,20 @@ public class BaseInformationView extends AbstractView {
 	public void auto() {
 		adjustUI();
 
-//		back.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View arg0) {
-//				Intent intent = new Intent(MainActivity.instance,
-//						MainFragmentView.class);
-//
-//				MainFragmentView.instance.startActivity(intent);
-//			}
-//		});
+        back = (RelativeLayout) view.findViewById(R.id.cancel);
+
+		back.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				MainActivity.instance.switchScreen(ViewFlyweight.MAIN_VIEW);
+                ViewFlyweight.MAIN_VIEW.gotoMyView();
+			}
+		});
 
 	}
 
 	private void adjustUI() {
-//		TextView aboutTitle = (TextView) view.findViewById(R.id.about_title);
-//		adjustTitleBarUnitSize(aboutTitle);
-//		adjustFontSize(aboutTitle);
-//
-//		back = (ImageView) view.findViewById(R.id.button_back);
-//		adjustTitleBarUnitSize(back);
-//
-//		RelativeLayout titleBar = (RelativeLayout) view
-//				.findViewById(R.id.title_bar);
-//		adjustTitleBarUnitSize(titleBar);
-
 
 	}
 
