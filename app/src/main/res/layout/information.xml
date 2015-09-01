@@ -11,35 +11,54 @@
         android:background="@color/main_color"
         android:gravity="center">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="100dp"
-            android:layout_height="20dp">
+            <RelativeLayout
+                android:layout_width="40dp"
+                android:layout_height="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/white_border_round_rect"
+                    >
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="消息"
+                    android:textColor="@color/tab_selected_color"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="40dp"
+                android:layout_height="20dp">
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="消息"
-                android:textColor="@color/tab_selected_color"
-                android:textSize="12sp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/white_border_round_rect"
+                    >
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="100dp"
-            android:layout_height="20dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="聊天"
-                android:textColor="@color/tab_unselected_color"
-                android:textSize="12sp" />
-        </RelativeLayout>
-
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="聊天"
+                    android:textColor="@color/tab_unselected_color"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
     </RelativeLayout>
 
     <LinearLayout
@@ -47,7 +66,6 @@
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
         android:gravity="center_vertical">
-
 
         <ImageView
             android:id="@+id/add_dialog"
@@ -70,40 +88,34 @@
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:background="@color/white"
-        android:visibility="invisible"
-        >
+        android:visibility="invisible">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="140dp"
-            android:gravity="center_horizontal"
-            >
+            android:gravity="center_horizontal">
 
             <LinearLayout
                 android:id="@+id/create_chat_room"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="100dp"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
 
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/add_chat_room_icon"
-                    />
+                    android:src="@drawable/add_chat_room_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="创建聊天室"
-                    android:textColor="@color/main_color"
-                    />
+                    android:textColor="@color/main_color" />
 
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -111,21 +123,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="100dp"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/new_friend_icon"
-                    />
+                    android:src="@drawable/new_friend_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="添加好友"
-                    android:textColor="@color/main_color"
-                    />
+                    android:textColor="@color/main_color" />
 
             </LinearLayout>
         </RelativeLayout>

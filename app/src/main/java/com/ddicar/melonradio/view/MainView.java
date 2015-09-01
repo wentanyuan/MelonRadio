@@ -32,8 +32,6 @@ public class MainView extends AbstractView {
     public void auto() {
 
         content = (RelativeLayout) view.findViewById(R.id.content);
-        gotoInfoView();
-
         info = (RelativeLayout) view.findViewById(R.id.information_layout);
 
         infoImage = (ImageView) view.findViewById(R.id.information_image);
@@ -77,6 +75,8 @@ public class MainView extends AbstractView {
                 gotoMyView();
             }
         });
+
+        gotoInfoView();
 
     }
 
