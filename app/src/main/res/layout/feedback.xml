@@ -22,18 +22,15 @@
             android:textSize="13sp" />
 
         <RelativeLayout
-            android:id="@+id/cancel"
-            android:layout_width="40dp"
+            android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:gravity="center_vertical">
+            android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:src="@color/tab_unselected_color"
-                android:text="&lt;"
-                android:textSize="13sp" />
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/hf_on" />
+
         </RelativeLayout>
 
     </RelativeLayout>
@@ -91,7 +88,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/confirm"
-                android:textColor="@color/white"
+                android:textColor="@color/light_text"
                 android:textSize="13sp" />
         </RelativeLayout>
     </RelativeLayout>

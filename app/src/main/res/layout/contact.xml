@@ -15,16 +15,15 @@
         <RelativeLayout
             android:id="@+id/cancel"
             android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:gravity="center_vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:src="@color/tab_unselected_color"
-                android:text="&lt;"
-                android:textSize="13sp" />
+            <ImageView
+                android:layout_width="26.5dp"
+                android:layout_height="13.5dp"
+                android:src="@drawable/back_button"
+                android:layout_marginLeft="5dp"
+                />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -35,9 +34,27 @@
         android:background="@color/main_color"
         android:gravity="center_horizontal">
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:background="@drawable/user_image_rect">
+
+            <ImageView
+                android:id="@+id/head_image"
+                android:layout_width="44dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:scaleType="fitXY"
+                android:src="@drawable/channel_empty" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:text="韩光月"
             android:gravity="center_horizontal"
             android:textColor="@color/white"
@@ -47,7 +64,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="85dp"
             android:text="中国国际货运车队"
             android:gravity="center_horizontal"
             android:textColor="@color/white"
@@ -279,6 +296,12 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/call_icon"
+            />
 
         <TextView
             android:layout_width="match_parent"

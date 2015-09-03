@@ -118,7 +118,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|center_horizontal"
                     android:text="@string/button_login"
-                    android:textColor="@color/white"
+                    android:textColor="@color/light_text"
                     android:textSize="13sp" />
             </RelativeLayout>
         </RelativeLayout>

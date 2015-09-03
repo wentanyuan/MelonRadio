@@ -17,12 +17,12 @@ import com.ddicar.melonradio.model.ChatRoom;
 import com.ddicar.melonradio.service.ChatRoomManager;
 import com.ddicar.melonradio.util.AndroidUtil;
 
-public class ChatRoomListAdapter extends BaseAdapter {
+public class ChatRoomAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;
 	List<HashMap<String, String>> items = new ArrayList<HashMap<String, String>>();
 
-	public ChatRoomListAdapter() {
+	public ChatRoomAdapter() {
 		this.mInflater = LayoutInflater.from(MainActivity.instance);
 	}
 

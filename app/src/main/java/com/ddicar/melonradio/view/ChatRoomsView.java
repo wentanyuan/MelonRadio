@@ -22,12 +22,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ddicar.melonradio.GotyeChatRoomActivity;
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
-import com.ddicar.melonradio.adapter.ChatRoomListAdapter;
+import com.ddicar.melonradio.adapter.ChatRoomAdapter;
 import com.ddicar.melonradio.model.ChatRoom;
 import com.ddicar.melonradio.service.ChatRoomManager;
 import com.ddicar.melonradio.util.AndroidUtil;
@@ -39,7 +38,7 @@ public class ChatRoomsView extends AbstractView implements Callback {
 
 	protected static final int REFRESH = 0x99;
 	protected static final int REFRESH_PARTIALLY = 0xff;
-	private ChatRoomListAdapter adapter;
+	private ChatRoomAdapter adapter;
 	private ListView chatRooms;
 	private ImageView back;
 	private TextView blank;
@@ -89,7 +88,7 @@ public class ChatRoomsView extends AbstractView implements Callback {
 				http.get(Http.SERVER + url, params);
 			}
 		});
-		adapter = new ChatRoomListAdapter();
+		adapter = new ChatRoomAdapter();
 		chatRooms.setAdapter(adapter);
 		chatRooms.setOnItemClickListener(new OnItemClickListener() {
 

@@ -29,10 +29,12 @@
 
 	<color name="main_color">#08335E</color>
 
-	<color name="button_color">#BCB8C6</color>
+	<color name="button_color">#68819B</color>
 
 
-	<color name="tab_selected_color">#08335E</color>
-	<color name="tab_unselected_color">#BCB8C6</color>
+	<color name="light_tab">#BAC5D1</color>
+	<color name="dark_tab">#68819B</color>
 
+	<color name="light_text">#BAC5D1</color>
+    <color name="dark_text">#68819B</color>
 </resources>

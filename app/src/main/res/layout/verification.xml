@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:src="@color/tab_unselected_color"
+            android:src="@color/dark_tab"
             android:layout_marginLeft="5dp"
             android:text="取消"
             android:textSize="13sp" />

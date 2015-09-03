@@ -1,6 +1,7 @@
 package com.ddicar.melonradio.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import com.ddicar.melonradio.R;
  */
 public class MainView extends AbstractView {
 
+    private static final String TAG = "MainView";
     private RelativeLayout content;
     private RelativeLayout info;
     private RelativeLayout waybill;
@@ -78,6 +80,7 @@ public class MainView extends AbstractView {
     }
 
     public void gotoMyView() {
+        Log.e(TAG, "MY_VIEW");
         content.removeAllViews();
         content.addView(ViewFlyweight.MY_VIEW.view);
         ViewFlyweight.MY_VIEW.auto();
@@ -88,6 +91,7 @@ public class MainView extends AbstractView {
     }
 
     public void gotoMapView() {
+        Log.e(TAG, "MAP_VIEW");
         content.removeAllViews();
         content.addView(ViewFlyweight.MAP_VIEW.view);
         ViewFlyweight.MAP_VIEW.auto();
@@ -98,6 +102,7 @@ public class MainView extends AbstractView {
     }
 
     public void gotoWayBillView() {
+        Log.e(TAG, "WAY_BILL_VIEW");
         content.removeAllViews();
         content.addView(ViewFlyweight.WAY_BILL_VIEW.view);
         ViewFlyweight.WAY_BILL_VIEW.auto();
@@ -109,6 +114,7 @@ public class MainView extends AbstractView {
     }
 
     public void gotoInfoView() {
+        Log.e(TAG, "INFO_VIEW");
         content.removeAllViews();
         content.addView(ViewFlyweight.INFO_VIEW.view);
         ViewFlyweight.INFO_VIEW.auto();

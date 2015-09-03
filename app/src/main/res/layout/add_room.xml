@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:textColor="@color/tab_unselected_color"
+            android:textColor="@color/light_tab"
             android:text="取消"
             android:textSize="13sp" />
 
@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_alignParentRight="true"
-            android:textColor="@color/tab_unselected_color"
+            android:textColor="@color/dark_tab"
             android:text="创建"
             android:textSize="13sp" />
     </RelativeLayout>

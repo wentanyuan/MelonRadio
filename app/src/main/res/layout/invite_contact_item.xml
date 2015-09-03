@@ -10,6 +10,11 @@
         android:layout_marginLeft="15dp"
         android:orientation="horizontal">
 
+        <CheckBox
+            android:id="@+id/select"
+            android:layout_width="15dp"
+            android:layout_height="15dp" />
+
         <ImageView
             android:id="@+id/avatar"
             android:layout_width="44dp"

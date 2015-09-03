@@ -30,9 +30,8 @@
             <ImageView
                 android:layout_width="26.5dp"
                 android:layout_height="13.5dp"
-                android:src="@drawable/back_button"
                 android:layout_marginLeft="5dp"
-                />
+                android:src="@drawable/back_button" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -70,12 +69,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal|center_vertical">
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/hf_on" />
+
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/hf_on" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
@@ -86,10 +93,18 @@
             android:layout_weight="1"
             android:gravity="center_horizontal">
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/voice_on2" />
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_speaker_selected"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/speak_icon" />
+            </RelativeLayout>
+
         </RelativeLayout>
 
 
@@ -97,12 +112,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal|center_vertical">
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/silent_off" />
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/silent_off" />
+            </RelativeLayout>
         </RelativeLayout>
 
     </LinearLayout>

@@ -28,13 +28,12 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:src="@color/tab_unselected_color"
-                android:text="&lt;"
-                android:textSize="13sp" />
+            <ImageView
+                android:layout_width="26.5dp"
+                android:layout_height="13.5dp"
+                android:src="@drawable/back_button"
+                android:layout_marginLeft="5dp"
+                />
         </RelativeLayout>
 
     </RelativeLayout>

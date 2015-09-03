@@ -33,14 +33,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
-                android:src="@color/tab_unselected_color"
+                android:src="@color/dark_tab"
                 android:text="&lt;"
                 android:textSize="13sp" />
         </RelativeLayout>
 
     </RelativeLayout>
-
-
 
 
     <LinearLayout
@@ -61,7 +59,7 @@
             android:src="@drawable/search_button_2" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/keyword"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@null"

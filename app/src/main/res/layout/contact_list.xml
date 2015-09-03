@@ -2,9 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/gray"
-    >
+    android:orientation="vertical">
 
 
     <RelativeLayout
@@ -27,14 +26,15 @@
         <RelativeLayout
             android:id="@+id/cancel"
             android:layout_width="30dp"
-            android:layout_height="30dp">
+            android:layout_height="30dp"
+            android:gravity="center"
+            >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:src="@color/tab_unselected_color"
-                android:text="V" />
+            <ImageView
+                android:layout_width="13.5dp"
+                android:layout_height="26.5dp"
+                android:src="@drawable/arrow_down" />
+
         </RelativeLayout>
 
 
@@ -58,47 +58,50 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:gravity="center_horizontal"
-        >
+        android:gravity="center_horizontal">
 
         <RelativeLayout
             android:layout_width="330dp"
             android:layout_height="35dp"
-            android:background="@color/white"
             android:gravity="center_vertical">
 
             <RelativeLayout
-                android:layout_width="330dp"
-                android:layout_height="30dp"
-                android:background="@drawable/white_border_round_rect">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
 
+                <RelativeLayout
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/white_border_round_rect">
+
+                </RelativeLayout>
             </RelativeLayout>
 
             <EditText
                 android:layout_width="330dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="15dp"
+                android:background="@null"
                 android:gravity="center_vertical"
                 android:hint=""
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray"
-                android:textSize="12sp"
-                android:background="@null"
-                />
+                android:textSize="12sp" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
-                >
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/search_button_2" />
+                android:gravity="center_vertical">
 
-                </RelativeLayout>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/search_button_2" />
+
+            </RelativeLayout>
         </RelativeLayout>
 
     </RelativeLayout>

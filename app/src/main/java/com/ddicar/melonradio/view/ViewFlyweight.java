@@ -64,6 +64,8 @@ public class ViewFlyweight {
     public static final ChangePasswordView CHANGE_PASSWORD = new ChangePasswordView();
     public static final FeedbackView FEEDBACK = new FeedbackView();
 
+	public static final InformationDetailView INFORMATION_DETAIL_VIEW = new InformationDetailView();
+
 	public static void init() {
 
 		ABOUT.init(R.layout.about);
@@ -116,14 +118,13 @@ public class ViewFlyweight {
         INVITATION.init(R.layout.invitation_of_home);
         HISTORY_GROUP.init(R.layout.history_group);
 
-
-
         DRIVE_TRACK.init(R.layout.drive_track);
 		SETTINGS.init(R.layout.settings);
 		MY_ACCOUNT.init(R.layout.my_account);
 
-
         CHANGE_PASSWORD.init(R.layout.change_password);
         FEEDBACK.init(R.layout.feedback);
+
+        INFORMATION_DETAIL_VIEW.init(R.layout.information_detail);
 	}
 }

@@ -3,12 +3,15 @@ package com.ddicar.melonradio.view;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
+import com.ddicar.melonradio.adapter.ContactAdapter;
 import com.ddicar.melonradio.adapter.FriendAdapter;
+import com.ddicar.melonradio.adapter.InviteContactAdapter;
 import com.ddicar.melonradio.adapter.RoomAdapter;
 
 
@@ -38,6 +41,16 @@ public class InviteView extends AbstractView {
             }
         });
 
+        ListView contactList = (ListView) view.findViewById(R.id.list_contacts);
+
+        contactList.setAdapter(new InviteContactAdapter());
+
+        contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainActivity.instance.switchScreen(ViewFlyweight.CHAT_ROOM);
+            }
+        });
     }
 
     @Override

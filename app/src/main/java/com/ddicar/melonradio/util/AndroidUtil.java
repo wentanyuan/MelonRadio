@@ -1,6 +1,7 @@
 package com.ddicar.melonradio.util;
 
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.ddicar.melonradio.MainActivity;
@@ -74,4 +75,12 @@ public class AndroidUtil {
 		}
 		return installed;
 	}
+
+	public static int parseColor(int colorResId) {
+		return MainActivity.instance.getResources().getColor(colorResId);
+	}
+
+    public static Drawable parseDrawable(int drawableResId) {
+        return MainActivity.instance.getResources().getDrawable(drawableResId);
+    }
 }
