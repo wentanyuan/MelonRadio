@@ -14,9 +14,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="5px"
-            android:paddingLeft="50px"
-            android:paddingTop="5px"
+            android:gravity="center_vertical"
             android:text="黄宇"
             android:textColor="@color/black"
             android:textSize="16sp" />

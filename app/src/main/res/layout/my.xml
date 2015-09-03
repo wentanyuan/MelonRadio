@@ -69,7 +69,7 @@
             <ImageView
                 android:id="@+id/information_image"
                 android:layout_width="15dp"
-                android:layout_height="1.5dp"
+                android:layout_height="15dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:src="@drawable/general_info" />
 
@@ -176,7 +176,7 @@
     <RelativeLayout
         android:id="@+id/my_account"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:background="@color/white"
         android:orientation="horizontal">
 

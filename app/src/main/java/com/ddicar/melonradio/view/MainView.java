@@ -38,7 +38,6 @@ public class MainView extends AbstractView {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 gotoInfoView();
             }
         });
@@ -50,7 +49,6 @@ public class MainView extends AbstractView {
         waybill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 gotoWayBillView();
             }
         });
@@ -62,7 +60,6 @@ public class MainView extends AbstractView {
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 gotoMapView();
             }
         });
