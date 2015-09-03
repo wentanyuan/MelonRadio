@@ -29,14 +29,13 @@ public class MyView extends AbstractView {
 
     ImageView avatar;
     private ImageLoader imageLoader;
+    private DisplayImageOptions options;
 
 
     RelativeLayout baseInformation;
-    private DisplayImageOptions options;
     private RelativeLayout driveTrack;
     private RelativeLayout myAccount;
     private RelativeLayout settings;
-
 
 
     @Override
@@ -113,7 +112,7 @@ public class MyView extends AbstractView {
             }
         });
 
-        driveTrack = (RelativeLayout)view.findViewById(R.id.driving_track);
+        driveTrack = (RelativeLayout) view.findViewById(R.id.driving_track);
         driveTrack.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +120,7 @@ public class MyView extends AbstractView {
             }
         });
 
-        myAccount = (RelativeLayout)view.findViewById(R.id.my_account);
+        myAccount = (RelativeLayout) view.findViewById(R.id.my_account);
         myAccount.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,7 +129,7 @@ public class MyView extends AbstractView {
         });
 
 
-        settings = (RelativeLayout)view.findViewById(R.id.settings);
+        settings = (RelativeLayout) view.findViewById(R.id.settings);
         settings.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,14 +139,11 @@ public class MyView extends AbstractView {
 
 
         if (user.getUser().pic != null) {
-            System.out.println("reloading pic");
             try {
                 imageLoader.displayImage(user.getUser().pic, avatar, options);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
-            System.out.println("pic is null.");
         }
 
     }

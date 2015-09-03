@@ -21,16 +21,18 @@
             android:text="驾车追踪"
             android:textSize="13sp" />
 
+
         <RelativeLayout
-            android:layout_width="120dp"
+            android:id="@+id/cancel"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center_vertical">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/hf_on" />
-
+                android:layout_width="26.5dp"
+                android:layout_height="13.5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/back_button" />
         </RelativeLayout>
 
     </RelativeLayout>

@@ -21,9 +21,8 @@
             <ImageView
                 android:layout_width="26.5dp"
                 android:layout_height="13.5dp"
-                android:src="@drawable/back_button"
                 android:layout_marginLeft="5dp"
-                />
+                android:src="@drawable/back_button" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -35,38 +34,44 @@
         android:gravity="center_horizontal">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:background="@drawable/user_image_rect">
+            android:gravity="center_horizontal">
 
-            <ImageView
-                android:id="@+id/head_image"
+            <RelativeLayout
                 android:layout_width="44dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:scaleType="fitXY"
-                android:src="@drawable/channel_empty" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:background="@drawable/user_image_rect">
+
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="44dp"
+                    android:layout_height="24dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/channel_empty" />
+
+            </RelativeLayout>
+        </RelativeLayout>
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="韩光月"
             android:gravity="center_horizontal"
+            android:text="韩光月"
             android:textColor="@color/white"
             android:textSize="13sp" />
 
 
         <TextView
+            android:id="@+id/team"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="85dp"
-            android:text="中国国际货运车队"
             android:gravity="center_horizontal"
+            android:text="中国国际货运车队"
             android:textColor="@color/white"
             android:textSize="13sp" />
 
@@ -116,6 +121,7 @@
 
 
             <TextView
+                android:id="@+id/plate"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -147,6 +153,7 @@
 
 
             <TextView
+                android:id="@+id/brand"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -177,6 +184,7 @@
                 android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/model"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -207,6 +215,7 @@
                 android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/length"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -237,6 +246,7 @@
                 android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/weight"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -267,6 +277,7 @@
                 android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/volume"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -293,24 +304,30 @@
         android:background="@color/gray" />
 
     <RelativeLayout
+        android:id="@+id/phone_call"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal|center_vertical">
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/call_icon"
-            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="打电话"
-            android:textColor="@color/main_color"
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/call_icon" />
 
-            android:textSize="13sp" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="打电话"
+                android:textColor="@color/main_color"
+                android:textSize="13sp" />
+        </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

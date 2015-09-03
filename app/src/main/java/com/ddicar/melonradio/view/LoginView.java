@@ -176,7 +176,7 @@ public class LoginView extends AbstractView implements Callback {
         password = (EditText) view.findViewById(R.id.password);
 
         forgetPassword = (TextView) view.findViewById(R.id.forget_password);
-        adjustSmallFontSize(forgetPassword);
+
 
     }
 
@@ -238,6 +238,9 @@ public class LoginView extends AbstractView implements Callback {
 
 
     public class LoginCallback implements Http.Callback {
+
+
+        private final static String TAG = "LoginCallback";
 
         @Override
         public void onResponse(JSONObject jsonObject) {

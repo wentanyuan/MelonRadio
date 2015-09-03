@@ -5,22 +5,32 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
-import com.ddicar.melonradio.model.User;
 import com.ddicar.melonradio.service.UserManager;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 public class BaseInformationView extends AbstractView {
     private static final String TAG = "BaseInformationView";
+
+
+    private ImageLoader imageLoader;
+    private DisplayImageOptions options;
+
+
     private RelativeLayout back;
     private RelativeLayout dialog;
     private RelativeLayout cancelPhoto;
     private RelativeLayout album;
     private RelativeLayout takePhoto;
-    private RelativeLayout avatar;
+    private RelativeLayout avatarContainer;
+
     private TextView name;
     private TextView phone;
     private TextView team;
@@ -28,6 +38,22 @@ public class BaseInformationView extends AbstractView {
     private TextView brand;
     private TextView model;
     private TextView parameters;
+    private ImageView avatar;
+
+    public  BaseInformationView() {
+
+        try {
+            imageLoader = ImageLoader.getInstance();
+//			imageLoader.init(ImageLoaderConfiguration
+//					.createDefault(MainFragmentView.instance));
+
+            options = new DisplayImageOptions.Builder().cacheInMemory(true)
+                    .displayer(new RoundedBitmapDisplayer(500)).build();
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void onSwitchOff() {
@@ -49,14 +75,17 @@ public class BaseInformationView extends AbstractView {
             }
         });
 
-        avatar = (RelativeLayout) view.findViewById(R.id.avatar);
-        avatar.setOnClickListener(new OnClickListener() {
+        avatarContainer = (RelativeLayout) view.findViewById(R.id.avatar);
+        avatarContainer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e(TAG, "avatar clicked");
+                Log.e(TAG, "avatarContainer clicked");
                 dialog.setVisibility(View.VISIBLE);
             }
         });
+
+
+        avatar = (ImageView) view.findViewById(R.id.avatar);
 
         name = (TextView) view.findViewById(R.id.name);
         phone = (TextView) view.findViewById(R.id.phone);
@@ -101,6 +130,16 @@ public class BaseInformationView extends AbstractView {
                 dialog.setVisibility(View.INVISIBLE);
             }
         });
+
+
+        UserManager user = UserManager.getInstance();
+        if (user.getUser().pic != null) {
+            try {
+                imageLoader.displayImage(user.getUser().pic, avatar, options);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void adjustUI() {
