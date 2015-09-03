@@ -348,7 +348,7 @@ public class PlayView extends AbstractView implements OnInitListener,
 			case RELOAD_PIC:
 				RadioText radio = (RadioText) message.obj;
 				if (imageLoader != null && radio != null) {
-					imageLoader.displayImage(Http.SERVER + "images/"
+					imageLoader.displayImage(Http.SERVER() + "images/"
 							+ radio.pic, play, options);
 				}
 				break;
@@ -678,7 +678,7 @@ public class PlayView extends AbstractView implements OnInitListener,
 		RadioTextManager manager = RadioTextManager.getInstance();
 		RadioText currentRadioText = manager.getCurrentRadioText();
 		if (currentRadioText != null) {
-			imageLoader.displayImage(Http.SERVER + "images/"
+			imageLoader.displayImage(Http.SERVER() + "images/"
 					+ currentRadioText.pic, play, options);
 		}
 

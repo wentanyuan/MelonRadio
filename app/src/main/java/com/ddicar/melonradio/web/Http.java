@@ -20,9 +20,16 @@ import java.util.Map;
 public class Http {
     private static final String TAG = "http";
 
-    public static final String SERVER = "http://182.92.160.208:3000/";
+//    public static final String SERVER = "http://182.92.160.208:3000/";
 
     Callback callback;
+
+
+    private static final int TEST = 0;
+    private static final int STAGING = 1;
+    private static final int PROD = 2;
+
+    private static final int version = STAGING;
 
     AsyncHttpClient client = new AsyncHttpClient();
     private static Http instance = null;
@@ -35,6 +42,18 @@ public class Http {
             instance = new Http();
         }
         return instance;
+    }
+
+
+
+    public static String SERVER() {
+        if (version == STAGING) {
+            return "http://192.168.1.100:8080/sample/";
+        } else if (version == PROD) {
+            return "http://182.92.160.208:3000/";
+        } else {
+            return "";
+        }
     }
 
     /**

@@ -8,7 +8,7 @@
   	<RelativeLayout
         android:id="@+id/content"  
         android:layout_width="match_parent"  
-        android:layout_height="600dp">
+        android:layout_height="575dp">
     </RelativeLayout>
   	
     
@@ -54,7 +54,7 @@
                     android:layout_gravity="center_horizontal"  
                     android:text="消息"
                     android:textSize="11sp"
-                    android:textColor="#08335E" />  
+                    android:textColor="@color/main_color" />
             </LinearLayout>  
         </RelativeLayout>  
         
@@ -84,7 +84,7 @@
                     android:layout_gravity="center_horizontal"  
                     android:text="运单"
                     android:textSize="11sp"
-                    android:textColor="#7F7F7F" />  
+                    android:textColor="@color/gray" />
             </LinearLayout>  
         </RelativeLayout>  
         
@@ -115,7 +115,7 @@
                     android:layout_gravity="center_horizontal"  
                     android:text="地图"
                     android:textSize="11sp"
-                    android:textColor="#7F7F7F" />  
+                    android:textColor="@color/gray" />
             </LinearLayout>  
         </RelativeLayout>  
         
@@ -146,7 +146,7 @@
                     android:layout_gravity="center_horizontal"  
                     android:text="我的"
                     android:textSize="11sp"
-                    android:textColor="#7F7F7F" />  
+                    android:textColor="@color/gray" />
             </LinearLayout>  
         </RelativeLayout>  
                 

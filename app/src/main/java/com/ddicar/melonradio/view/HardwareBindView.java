@@ -99,7 +99,7 @@ public class HardwareBindView extends AbstractView implements Callback {
 				params.put("name", user.name);
 				params.put("deviceSN", user.deviceSN);
 
-				http.post(Http.SERVER + url, params);
+				http.post(Http.SERVER() + url, params);
 			}
 		});
 	}

@@ -66,6 +66,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="15dp"
                 android:gravity="center_vertical"
+                android:background="@null"
                 android:hint="搜索手机通讯录"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray"
@@ -81,7 +82,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/search_button_2" />
+                    android:src="@drawable/search_icon" />
             </RelativeLayout>
 
         </RelativeLayout>

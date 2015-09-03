@@ -58,7 +58,7 @@ public class ChannelManager implements Callback {
 		Map<String, String> params = new HashMap<String, String>();
 
 		// System.out.println(Http.SERVER + url);
-		http.get(Http.SERVER + url, params);
+		http.get(Http.SERVER() + url, params);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 public class User {
 
+
 	public User() {
 
 	}
@@ -18,7 +19,15 @@ public class User {
 			phone = (String) data.get("phone");
 			sex = (String) data.get("sex");
 			intro = (String) data.get("intro");
-		} catch (JSONException e) {
+
+            JSONObject truckJson = (JSONObject) data.get("truck");
+            truck = new Truck(truckJson);
+
+            JSONObject teamJson = (JSONObject) data.get("team");
+            team = new Team(teamJson);
+
+
+        } catch (JSONException e) {
 			e.printStackTrace();
 		}
 	}
@@ -36,5 +45,9 @@ public class User {
 	public String sex;
 
 	public String intro;
+
+	public Truck truck;
+
+    public Team team;
 
 }

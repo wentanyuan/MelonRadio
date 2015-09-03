@@ -91,6 +91,17 @@ public class InformationView extends AbstractView {
         });
 
 
+
+        chatRooms = (ListView) view.findViewById(R.id.chat_rooms);
+        chatRooms.setAdapter(new ChatRoomAdapter());
+        chatRooms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e(TAG, "chat_room_list clicked");
+                MainActivity.instance.switchScreen(ViewFlyweight.CHAT_ROOM);
+            }
+        });
+
         infoBackground = (RelativeLayout)view.findViewById(R.id.info_tab_background);
         infoText = (TextView)view.findViewById(R.id.info_tab_text);
         chatRoomBackground = (RelativeLayout)view.findViewById(R.id.chat_tab_background);
@@ -111,17 +122,6 @@ public class InformationView extends AbstractView {
             }
         });
 
-
-
-        chatRooms = (ListView) view.findViewById(R.id.chat_rooms);
-        chatRooms.setAdapter(new ChatRoomAdapter());
-        chatRooms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e(TAG, "chat_room_list clicked");
-                MainActivity.instance.switchScreen(ViewFlyweight.CHAT_ROOM);
-            }
-        });
 
 
         RelativeLayout chatTab = (RelativeLayout) view.findViewById(R.id.chat_tab);

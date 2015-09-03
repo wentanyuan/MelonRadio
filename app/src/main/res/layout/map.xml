@@ -3,235 +3,219 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <com.amap.api.maps2d.MapView
             android:id="@+id/map"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true" />
-<!-- 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignTop="@id/map"
-            android:minWidth="130dip"
-            android:orientation="vertical"
-            android:padding="6dp" >
+        <!--
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignTop="@id/map"
+                    android:minWidth="130dip"
+                    android:orientation="vertical"
+                    android:padding="6dp" >
 
-            <CheckBox
-                android:id="@+id/traffic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="traffic"
-                android:textColor="@color/dark_gray" />
-        </LinearLayout> -->
+                    <CheckBox
+                        android:id="@+id/traffic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="traffic"
+                        android:textColor="@color/dark_gray" />
+                </LinearLayout> -->
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" 
-        >
-		
+        android:layout_height="match_parent">
+
         <RelativeLayout
             android:id="@+id/marker_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="100dp"
-	        android:gravity="center_horizontal"
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:visibility="gone"
-            >
-            
-           	<RelativeLayout
-           	    android:id="@+id/height_limit_container"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginRight="180dp"		        
-           	    >
-				<ImageView
-				    android:id="@+id/height_limit_icon"
-		            android:layout_width="180dp"
-		            android:layout_height="180dp"
-		            android:src="@drawable/height_limit_icon"
-				    />
-			</RelativeLayout>
+            android:gravity="center_horizontal"
+            android:visibility="invisible">
 
-           	
-           	<RelativeLayout
-           	    android:id="@+id/police_container"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginLeft="180dp"
-           	    >
-				<ImageView
-				    android:id="@+id/police_icon"
-		            android:layout_width="180dp"
-		            android:layout_height="180dp"
-		            android:src="@drawable/police_icon"
-				    />
-			</RelativeLayout>
-				
-           	
-           	<RelativeLayout
-           	    android:id="@+id/gas_container"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginTop="160dp"
-		        android:layout_marginLeft="90dp"
-           	    >
-				<ImageView
-				    android:id="@+id/gas_icon"
-		            android:layout_width="180dp"
-		            android:layout_height="180dp"
-		            android:src="@drawable/gas_icon"
-				    />
-			</RelativeLayout>
-		
-		</RelativeLayout>
-		
-	<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" 
-        android:layout_alignParentBottom="true"
-        >
-        <!--  
-	    <RelativeLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content" 
-          	android:layout_alignParentBottom="true"
-          	android:gravity="center_horizontal"
-	        >
-	     -->
-         	<ImageView 
-              android:id="@+id/add_point"
-	          android:layout_width="120dp"
-	          android:layout_height="120dp"
-	          android:layout_gravity="center_horizontal"
-	          android:src="@drawable/mark_point"
-	          />
-        <!--  
-		</RelativeLayout>
-		-->
-       
-    </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/height_limit_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="150dp">
+
+                <ImageView
+                    android:id="@+id/height_limit_icon"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:src="@drawable/height_limit_icon" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/police_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp">
+
+                <ImageView
+                    android:id="@+id/police_icon"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:src="@drawable/police_icon" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/gas_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="130dp">
+
+                <ImageView
+                    android:id="@+id/gas_icon"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:src="@drawable/gas_icon" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/add_point"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/mark_point" />
+
+        </LinearLayout>
     </RelativeLayout>
-    
-    
+
+
     <RelativeLayout
-		android:id="@+id/oil_price_dialog"
+        android:id="@+id/oil_price_dialog"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-	    android:gravity="center_horizontal"
-	    android:background="@color/gray_cover"
-       	android:visibility="gone" 
-        >
-    
-    	<LinearLayout
-	        android:layout_width="300dp"
-	        android:layout_height="220dp" 
-	    	android:layout_marginTop="150dp"
-	        android:orientation="horizontal"
-    	    >
-         	<ImageView 
-         	    android:id="@+id/border_left"
-		        android:layout_width="8dp"
-		        android:layout_height="220dp" 
-         	    android:src="@drawable/white_border_left_part"
-         	    />
-         	
-	    	<LinearLayout
-		        android:layout_width="284dp"
-		        android:layout_height="220dp" 
-		        android:orientation="vertical"
-	    		android:gravity="center_horizontal"
-	        	android:background="@color/white"
-	    	    >
-	    	<LinearLayout
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content" 
-		        android:orientation="horizontal"
-		        android:layout_marginTop="20dp"
-	    	    >
-         	
-	    	    <TextView
-			        android:layout_width="100dp"
-			        android:layout_height="wrap_content"
-			        android:text="金额(元)" 
-	    	        />
-	    	    
-	    	    <EditText
-	    	        android:id="@+id/oil_price"
-	    	        android:layout_width="100dp"
-			        android:layout_height="wrap_content"
-	    	        />
-         	</LinearLayout>
-    	   	
-    	   	
-	    	<LinearLayout
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content" 
-		        android:orientation="horizontal"
-		        android:layout_marginTop="20dp"
-	    	    >
-	         	
-	    	   	<TextView
-			        android:layout_width="100dp"
-			        android:layout_height="wrap_content"
-			        android:text="油价(元/升)" 
-	    	        />
-         	
-	    	    <EditText
-	    	        android:id="@+id/oil_price"
-	    	        android:layout_width="100dp"
-			        android:layout_height="wrap_content"
-	    	        />
-         	</LinearLayout>
-    	    
-	    	<LinearLayout
-	    	    android:id="@+id/save_oil_price"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content" 
-		        android:orientation="horizontal"
-		        android:layout_marginTop="20dp"
-	    	    >
-	    	    
-	    	    
-	    	    <TextView 
-	    	    	android:id="@+id/save_button"
-	    	        android:layout_width="150dp"
-		        	android:layout_height="60dp"
-			        android:background="@drawable/button_body"
-			        android:text="记录"
-	    			android:gravity="center_horizontal|center_vertical"
-			        android:textColor="@color/white"
-	    	        />
-	    	    
-         	</LinearLayout>
-         	
-	    	</LinearLayout>
-	    	
-         	<ImageView 
-         	    android:id="@+id/border_right"
-		        android:layout_width="8dp"
-		        android:layout_height="220dp" 
-         	    android:src="@drawable/white_border_right_part"
-         	    />
+        android:background="@color/transparent_cover"
+        android:gravity="center_horizontal"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/white_border_round_rect"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="金额(元)"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/total_price"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/white_border_round_rect"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="油价(元/升)"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/oil_price"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/white_border_round_rect"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.25dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/gray" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/save_oil_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/blue_button_round_rect">
+
+                    <TextView
+                        android:id="@+id/save_button"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:text="记录"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+            </RelativeLayout>
+
         </LinearLayout>
-        
+
     </RelativeLayout>
-	<!-- 	
+    <!--
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-		
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -315,30 +299,30 @@
     </RelativeLayout>
 -->
 
-<!-- 
-    <RelativeLayout
-        android:id="@+id/title_bar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/main_color"
-        android:gravity="center_vertical" >
-
-        <ImageView
-            android:id="@+id/button_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:src="@drawable/back" />
-
-        <TextView
-            android:id="@+id/map_title"
+    <!--
+        <RelativeLayout
+            android:id="@+id/title_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@string/map"
-            android:textColor="@color/white"
-            android:textSize="30sp" >
-        </TextView>
-    </RelativeLayout>
-     -->
+            android:layout_height="60dp"
+            android:background="@color/main_color"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/button_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/map_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/map"
+                android:textColor="@color/white"
+                android:textSize="30sp" >
+            </TextView>
+        </RelativeLayout>
+         -->
 </RelativeLayout>

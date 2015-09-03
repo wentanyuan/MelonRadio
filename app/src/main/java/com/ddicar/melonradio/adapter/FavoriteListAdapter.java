@@ -88,7 +88,7 @@ public class FavoriteListAdapter extends BaseAdapter implements Callback,
 		TextView title = (TextView) convertView
 				.findViewById(R.id.radio_content);
 
-		imageLoader.displayImage(Http.SERVER + "images/"
+		imageLoader.displayImage(Http.SERVER() + "images/"
 				+ items.get(position).get("pic"), image_head, options);
 
 		name.setText(items.get(position).get("author"));
@@ -268,7 +268,7 @@ public class FavoriteListAdapter extends BaseAdapter implements Callback,
 		String postId = items.get(position).get("_id");
 		params.put("post_id", postId);
 
-		http.post(Http.SERVER + url, params);
+		http.post(Http.SERVER() + url, params);
 
 		if ("false".equals(items.get(position).get("favorited"))) {
 			items.remove(position);

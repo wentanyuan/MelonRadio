@@ -211,7 +211,7 @@ public class DairyChannelView extends AbstractView implements Callback {
 				params.put("DaliyPaperSettings[]", checkedChannels);
 				Log.e(TAG, "@@@@@@@@@"+manager.getUser()._id);
 				//Toast.makeText(MainActivity.instance, "@@@@@@@@@"+manager.getUser()._id, Toast.LENGTH_LONG).show();
-				http.post(Http.SERVER + url, params);
+				http.post(Http.SERVER() + url, params);
 			}
 		});
 	}

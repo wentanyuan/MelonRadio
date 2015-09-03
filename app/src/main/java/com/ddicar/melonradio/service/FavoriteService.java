@@ -37,7 +37,7 @@ public class FavoriteService implements Callback {
 		params.put("user_id", manager.getUser()._id);
 		params.put("post_id", radioText._id);
 
-		http.post(Http.SERVER + url, params);
+		http.post(Http.SERVER() + url, params);
 	}
 
 	@Override

@@ -97,8 +97,10 @@ public class MyView extends AbstractView {
 
         userName = (TextView) view.findViewById(
                 R.id.user_register_name);
+
         UserManager user = UserManager.getInstance();
         userName.setText(user.getUser().name);
+
         baseInformation = (RelativeLayout) view.findViewById(
                 R.id.base_information);
         avatar = (ImageView) view.findViewById(
@@ -139,7 +141,11 @@ public class MyView extends AbstractView {
 
         if (user.getUser().pic != null) {
             System.out.println("reloading pic");
-            imageLoader.displayImage(user.getUser().pic, avatar, options);
+            try {
+                imageLoader.displayImage(user.getUser().pic, avatar, options);
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
         } else {
             System.out.println("pic is null.");
         }

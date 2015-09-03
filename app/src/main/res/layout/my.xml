@@ -20,7 +20,7 @@
             android:background="@drawable/user_image_rect">
 
             <ImageView
-                android:id="@+id/head_image"
+                android:id="@+id/avatar"
                 android:layout_width="44dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -228,7 +228,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.25dp"
         android:src="@color/low_dark_gray" />
 
     <ImageView

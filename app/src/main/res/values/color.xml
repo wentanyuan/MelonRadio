@@ -37,4 +37,7 @@
 
 	<color name="light_text">#BAC5D1</color>
     <color name="dark_text">#68819B</color>
+
+
+    <color name="transparent_cover">#66000000</color>
 </resources>

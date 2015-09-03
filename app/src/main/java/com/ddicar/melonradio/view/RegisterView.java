@@ -1,16 +1,10 @@
 package com.ddicar.melonradio.view;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import android.annotation.TargetApi;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
@@ -36,45 +29,53 @@ import com.ddicar.melonradio.util.StringUtil;
 import com.ddicar.melonradio.web.Http;
 import com.ddicar.melonradio.web.WebException;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class RegisterView extends AbstractView implements Http.Callback,
-		CaptchaService.Callback {
+        CaptchaService.Callback {
 
-	private static final int CLEAR_TEXT = 0x0f;
+    private static final int CLEAR_TEXT = 0x0f;
 
-//	private ImageView readTerm;
-	private ImageView catOffLine;
-	private ImageView catOffLineSecond;
-	private boolean checkedTerm = true;
-	private EditText phoneNumber;
-	private EditText captchaCode;
-	private EditText password;
-	private EditText name;
-//	private EditText passwordAgain;
-	private LinearLayout containerCode;
-	private LinearLayout firstCode;
-	private LinearLayout thirdCode;
-	private LinearLayout fourthCode;
-	private LinearLayout secondCode;
+    //	private ImageView readTerm;
+    private ImageView catOffLine;
+    private ImageView catOffLineSecond;
+    private boolean checkedTerm = true;
+    private EditText phoneNumber;
+    private EditText captchaCode;
+    private EditText password;
+    private EditText name;
+    //	private EditText passwordAgain;
+    private LinearLayout containerCode;
+    private LinearLayout firstCode;
+    private LinearLayout thirdCode;
+    private LinearLayout fourthCode;
+    private LinearLayout secondCode;
 
-	private String phoneNumberText;
-	private String passwordText;
-	private String nameText;
+    private String phoneNumberText;
+    private String passwordText;
+    private String nameText;
 
-	protected boolean gainCaptchaClickable = true;
+    protected boolean gainCaptchaClickable = true;
 
-	private static final int UPDATE_TIMER = 0x9999;
+    private static final int UPDATE_TIMER = 0x9999;
 
-	private static final String TAG = "register";
+    private static final String TAG = "register";
 
-	@Override
-	public void onSwitchOff() {
+    @Override
+    public void onSwitchOff() {
 
-	}
+    }
 
-	@Override
-	public void auto() {
+    @Override
+    public void auto() {
 
-		adjustUI();
+        adjustUI();
 //		readTerm.setOnClickListener(new OnClickListener() {
 //
 //			@Override
@@ -89,216 +90,216 @@ public class RegisterView extends AbstractView implements Http.Callback,
 //			}
 //		});
 
-		gainCaptcha = (LinearLayout) view.findViewById(R.id.button_gain_captha);
-		gainCaptcha.setOnClickListener(new OnClickListener() {
+        gainCaptcha = (LinearLayout) view.findViewById(R.id.button_gain_captha);
+        gainCaptcha.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View arg0) {
+            @Override
+            public void onClick(View arg0) {
 
-				if (!gainCaptchaClickable) {
-					return;
-				}
-				
-				phoneNumberText = phoneNumber.getText().toString();
-				
-				if (StringUtil.isNullOrEmpty(phoneNumberText)) {
-					MainActivity.instance.showMessage("请输入手机号码");
-					phoneNumber.requestFocus();
-					return;
-				}
+                if (!gainCaptchaClickable) {
+                    return;
+                }
 
-				startCountingDown();
+                phoneNumberText = phoneNumber.getText().toString();
 
-				CaptchaService service = CaptchaService.getInstance();
+                if (StringUtil.isNullOrEmpty(phoneNumberText)) {
+                    MainActivity.instance.showMessage("请输入手机号码");
+                    phoneNumber.requestFocus();
+                    return;
+                }
 
-				
-				
-				//Toast.makeText(MainActivity.instance, "@@@@@@@@@"+phoneNumberText, Toast.LENGTH_LONG).show();
+                startCountingDown();
 
-				
+                CaptchaService service = CaptchaService.getInstance();
 
-				// TODO 手机号码格式校验
 
-				service.getCaptcha(phoneNumberText);
-			}
+                //Toast.makeText(MainActivity.instance, "@@@@@@@@@"+phoneNumberText, Toast.LENGTH_LONG).show();
 
-		});
-		
-		
 
-		LinearLayout register = (LinearLayout) view
-				.findViewById(R.id.button_creat_account);
-		register.setOnClickListener(new OnClickListener() {
+                // TODO 手机号码格式校验
 
-			@Override
-			public void onClick(View arg0) {
+                service.getCaptcha(phoneNumberText);
+            }
 
-				// TODO avoid double click
+        });
 
-				MainActivity.instance.hideKeyboard();
 
-				phoneNumberText = phoneNumber.getText().toString();
-				String captchaText = captchaCode.getText().toString();
-				passwordText = password.getText().toString();
-				nameText = name.getText().toString();
+        LinearLayout register = (LinearLayout) view
+                .findViewById(R.id.button_creat_account);
+        register.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                // TODO avoid double click
+
+                MainActivity.instance.hideKeyboard();
+
+                phoneNumberText = phoneNumber.getText().toString();
+                String captchaText = captchaCode.getText().toString();
+                passwordText = password.getText().toString();
+                nameText = name.getText().toString();
 //				String passwordAgainText = passwordAgain.getText().toString();
 
-				if (StringUtil.isNullOrEmpty(phoneNumberText)) {
-					MainActivity.instance.showMessage("请输入手机号");
-					return;
-				}
+                if (StringUtil.isNullOrEmpty(phoneNumberText)) {
+                    MainActivity.instance.showMessage("请输入手机号");
+                    return;
+                }
 
-				if (StringUtil.isNullOrEmpty(captchaText)) {
-					MainActivity.instance.showMessage("请输入验证码");
-					return;
-				}
-				if (StringUtil.isNullOrEmpty(passwordText)) {
-					MainActivity.instance.showMessage("请输入密码");
-					return;
-				}
-				if (StringUtil.isNullOrEmpty(nameText)) {
-					MainActivity.instance.showMessage("请输入您的姓名");
-					return;
-				}
+                if (StringUtil.isNullOrEmpty(captchaText)) {
+                    MainActivity.instance.showMessage("请输入验证码");
+                    return;
+                }
+                if (StringUtil.isNullOrEmpty(passwordText)) {
+                    MainActivity.instance.showMessage("请输入密码");
+                    return;
+                }
+                if (StringUtil.isNullOrEmpty(nameText)) {
+                    MainActivity.instance.showMessage("请输入您的姓名");
+                    return;
+                }
 //				if (StringUtil.isNullOrEmpty(passwordAgainText)) {
 //					MainActivity.instance.showMessage("请输入确认密码");
 //					return;
 //				}
 
-				// TODO 6-20位字符校验
+                // TODO 6-20位字符校验
 
 //				if (!passwordText.equals(passwordAgainText)) {
 //					MainActivity.instance.showMessage("密码必须和确认密码一致");
 //					return;
 //				}
 
-				if (!checkedTerm) {
-					MainActivity.instance.showMessage("必须同意协议才能使用系统");
-					return;
-				}
+                if (!checkedTerm) {
+                    MainActivity.instance.showMessage("必须同意协议才能使用系统");
+                    return;
+                }
 
-				CaptchaService service = CaptchaService.getInstance();
-				service.submitCaptcha(phoneNumberText, captchaText,
-						RegisterView.this);
-			}
-		});
+                CaptchaService service = CaptchaService.getInstance();
+                service.submitCaptcha(phoneNumberText, captchaText,
+                        RegisterView.this);
+            }
+        });
 
-		back.setOnClickListener(new OnClickListener() {
+        back.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View arg0) {
-				MainActivity.instance.switchScreen(ViewFlyweight.LOGIN);
-			}
-		});
+            @Override
+            public void onClick(View arg0) {
+                MainActivity.instance.switchScreen(ViewFlyweight.LOGIN);
+            }
+        });
 
-	}
+    }
 
-	// Thread thread = new Thread() {
-	//
-	// public void run() {
-	// int count = 0;
-	// while (count < 61) {
-	// try {
-	//
-	// Message message = new Message();
-	// message.what = UPDATE_TIMER;
-	// message.arg1 = count;
-	// mHandler.sendMessage(message);
-	//
-	// sleep(1000);
-	// count++;
-	// } catch (InterruptedException e) {
-	// e.printStackTrace();
-	// }
-	// }
-	// }
-	// };
+    // Thread thread = new Thread() {
+    //
+    // public void run() {
+    // int count = 0;
+    // while (count < 61) {
+    // try {
+    //
+    // Message message = new Message();
+    // message.what = UPDATE_TIMER;
+    // message.arg1 = count;
+    // mHandler.sendMessage(message);
+    //
+    // sleep(1000);
+    // count++;
+    // } catch (InterruptedException e) {
+    // e.printStackTrace();
+    // }
+    // }
+    // }
+    // };
 
-	private void startCountingDown() {
-		// thread.start();
+    private void startCountingDown() {
+        // thread.start();
 
-		Timer timer = new Timer(true);
+        Timer timer = new Timer(true);
 
-		task = new MyTimerTask();
-		timer.schedule(task, 0, 1000);
-	}
+        task = new MyTimerTask();
+        timer.schedule(task, 0, 1000);
+    }
 
-	TimerTask task;
+    TimerTask task;
 
-	class MyTimerTask extends TimerTask {
+    class MyTimerTask extends TimerTask {
 
-		int count = 0;
+        int count = 0;
 
-		@Override
-		public void run() {
-			Message message = new Message();
-			message.what = UPDATE_TIMER;
-			message.arg1 = count;
-			mHandler.sendMessage(message);
-			System.out.println("task running.." + count);
-			count++;
-		}
+        @Override
+        public void run() {
+            Message message = new Message();
+            message.what = UPDATE_TIMER;
+            message.arg1 = count;
+            mHandler.sendMessage(message);
+            System.out.println("task running.." + count);
+            count++;
+        }
 
-	};
+    }
 
-	private void adjustUI() {
-		TextView registerTitle = (TextView) view
-				.findViewById(R.id.register_title);
-		adjustTitleBarUnitSize(registerTitle);
-		adjustFontSize(registerTitle);
+    ;
 
-		back = (ImageView) view.findViewById(R.id.button_back);
-		adjustTitleBarUnitSize(back);
+    private void adjustUI() {
+        TextView registerTitle = (TextView) view
+                .findViewById(R.id.register_title);
+        adjustTitleBarUnitSize(registerTitle);
+        adjustFontSize(registerTitle);
 
-		RelativeLayout titleBar = (RelativeLayout) view
-				.findViewById(R.id.title_bar);
-		adjustTitleBarUnitSize(titleBar);
+        back = (ImageView) view.findViewById(R.id.button_back);
+        adjustTitleBarUnitSize(back);
 
-		phoneNumber = (EditText) view.findViewById(R.id.phone_number);
-		//adjustFullWidth(phoneNumber);
+        RelativeLayout titleBar = (RelativeLayout) view
+                .findViewById(R.id.title_bar);
+        adjustTitleBarUnitSize(titleBar);
+
+        phoneNumber = (EditText) view.findViewById(R.id.phone_number);
+        //adjustFullWidth(phoneNumber);
 //		adjustUnitSize(phoneNumber);
-		adjustUnitHeightSize(phoneNumber);
-		adjustFontSize(phoneNumber,18);
-		
-		phoneNumber.addTextChangedListener(new TextWatcher() {  
-	        
-	        @Override    
-	        public void afterTextChanged(Editable s) {     
-	            // TODO Auto-generated method stub     
-	            Log.d("TAG","afterTextChanged--------------->");   
-	        }   
-	          
-	        @Override 
-	        public void beforeTextChanged(CharSequence s, int start, int count,  
-	                int after) {  
-	            // TODO Auto-generated method stub  
-	            Log.d("TAG","beforeTextChanged--------------->");  
-	        }  
-	 
-	         @Override    
-	        public void onTextChanged(CharSequence s, int start, int before,     
-	                int count) {     
-	            Log.d("TAG","onTextChanged--------------->");    
-	            phoneNumberText = phoneNumber.getText().toString();
-	            Resources resources = MainActivity.instance.getResources(); 
-	            Drawable btnBeforeDrawable = resources.getDrawable(R.drawable.captcha_before_border_round_rect); 
-	            Drawable btnAfterDrawable = resources.getDrawable(R.drawable.captcha_after_border_round_rect); 
-	            if (StringUtil.isNullOrEmpty(phoneNumberText)) {
-	            	gainCaptchaMiddle.setBackground(btnBeforeDrawable);          	
-				}else{
-					gainCaptchaMiddle.setBackground(btnAfterDrawable);
-				}
-	             
-	                              
-	        }                    
-	    });
-		
-		catOffLine = (ImageView) view.findViewById(R.id.cut_off_line);
-		adjustFullWidth(catOffLine, 0);
-		
-		catOffLineSecond = (ImageView) view.findViewById(R.id.cut_off_line_second);
-		adjustFullWidth(catOffLineSecond, 0);
-		
+        adjustUnitHeightSize(phoneNumber);
+        adjustFontSize(phoneNumber, 18);
+
+        phoneNumber.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+                Log.d("TAG", "afterTextChanged--------------->");
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+                // TODO Auto-generated method stub
+                Log.d("TAG", "beforeTextChanged--------------->");
+            }
+
+            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+                Log.d("TAG", "onTextChanged--------------->");
+                phoneNumberText = phoneNumber.getText().toString();
+                Resources resources = MainActivity.instance.getResources();
+                Drawable btnBeforeDrawable = resources.getDrawable(R.drawable.captcha_before_border_round_rect);
+                Drawable btnAfterDrawable = resources.getDrawable(R.drawable.captcha_after_border_round_rect);
+                if (StringUtil.isNullOrEmpty(phoneNumberText)) {
+                    gainCaptchaMiddle.setBackground(btnBeforeDrawable);
+                } else {
+                    gainCaptchaMiddle.setBackground(btnAfterDrawable);
+                }
+
+
+            }
+        });
+
+        catOffLine = (ImageView) view.findViewById(R.id.cut_off_line);
+        adjustFullWidth(catOffLine, 0);
+
+        catOffLineSecond = (ImageView) view.findViewById(R.id.cut_off_line_second);
+        adjustFullWidth(catOffLineSecond, 0);
+
 //		Toast.makeText(this, "间距宽度 = " + String.valueOf(phoneNumber.getLayoutParams().width) , Toast.LENGTH_LONG).show();
 //		ImageView phoneNumberLeft = (ImageView) view
 //				.findViewById(R.id.phone_number_left);
@@ -307,38 +308,38 @@ public class RegisterView extends AbstractView implements Http.Callback,
 //		ImageView phoneNumberRight = (ImageView) view
 //				.findViewById(R.id.phone_number_right);
 //		adjustUnitSize(phoneNumberRight, 13);
-		
-		firstCode = (LinearLayout) view
-				.findViewById(R.id.first_code);
-		adjustRegisterSize(firstCode);
-		
-		thirdCode = (LinearLayout) view
-				.findViewById(R.id.third_code);
-		adjustRegisterSize(thirdCode);
-		
-		fourthCode = (LinearLayout) view
-				.findViewById(R.id.fourth_code);
-		
-		adjustRegisterSize(fourthCode);
-		
-		secondCode = (LinearLayout) view
-		.findViewById(R.id.second_code);
-       adjustRegisterSize(secondCode);
-		
-		containerCode = (LinearLayout) view
-				.findViewById(R.id.container_code);
-		
-		adjustFullWidth(containerCode, 0);
 
-		captchaCode = (EditText) view.findViewById(R.id.captcha_code);
-		adjustFullWidth(captchaCode, 400);
+        firstCode = (LinearLayout) view
+                .findViewById(R.id.first_code);
+        adjustRegisterSize(firstCode);
+
+        thirdCode = (LinearLayout) view
+                .findViewById(R.id.third_code);
+        adjustRegisterSize(thirdCode);
+
+        fourthCode = (LinearLayout) view
+                .findViewById(R.id.fourth_code);
+
+        adjustRegisterSize(fourthCode);
+
+        secondCode = (LinearLayout) view
+                .findViewById(R.id.second_code);
+        adjustRegisterSize(secondCode);
+
+        containerCode = (LinearLayout) view
+                .findViewById(R.id.container_code);
+
+        adjustFullWidth(containerCode, 0);
+
+        captchaCode = (EditText) view.findViewById(R.id.captcha_code);
+        adjustFullWidth(captchaCode, 400);
 //		adjustUnitSize(captchaCode);
-		adjustUnitHeightSize(captchaCode);
-		adjustFontSize(captchaCode,18);
+        adjustUnitHeightSize(captchaCode);
+        adjustFontSize(captchaCode, 18);
 
-		LinearLayout captchaContainer = (LinearLayout) view
-				.findViewById(R.id.captcha_container);
-		adjustMargin(captchaContainer, 0, 0, 40, 0);
+        LinearLayout captchaContainer = (LinearLayout) view
+                .findViewById(R.id.captcha_container);
+        adjustMargin(captchaContainer, 0, 0, 40, 0);
 
 //		ImageView captchaCodeLeft = (ImageView) view
 //				.findViewById(R.id.captcha_code_left);
@@ -348,13 +349,13 @@ public class RegisterView extends AbstractView implements Http.Callback,
 //				.findViewById(R.id.captcha_code_right);
 //		adjustUnitSize(captchaCodeRight, 13);
 
-		gainCaptchaMiddle = (TextView) view
-				.findViewById(R.id.gain_captcha_middle);
+        gainCaptchaMiddle = (TextView) view
+                .findViewById(R.id.gain_captcha_middle);
 //		adjustUnitSize(gainCaptchaMiddle);
-		adjustUnitHeightSize(gainCaptchaMiddle);
-		adjustMediumFontSize(gainCaptchaMiddle);
-		adjustFontSize(gainCaptchaMiddle,18);
-		//adjustFixedWidth(gainCaptchaMiddle, 390);
+        adjustUnitHeightSize(gainCaptchaMiddle);
+        adjustMediumFontSize(gainCaptchaMiddle);
+        adjustFontSize(gainCaptchaMiddle, 18);
+        //adjustFixedWidth(gainCaptchaMiddle, 390);
 
 //		ImageView gainCaptchaLeft = (ImageView) view
 //				.findViewById(R.id.gain_captcha_left);
@@ -364,18 +365,18 @@ public class RegisterView extends AbstractView implements Http.Callback,
 //				.findViewById(R.id.gain_captcha_right);
 //		adjustUnitSize(gainCaptchaRight, 13);
 
-		password = (EditText) view.findViewById(R.id.password);
+        password = (EditText) view.findViewById(R.id.password);
 //		adjustFullWidth(password);
 //		adjustUnitHeightSize(password);
 //		adjustFontSize(password,18);
-		adjustUnitHeightSize(password);
-		adjustFontSize(password,18);
-		
-		name = (EditText) view.findViewById(R.id.name);
-		adjustUnitHeightSize(name);
-		adjustFontSize(name,18);
-		
-		
+        adjustUnitHeightSize(password);
+        adjustFontSize(password, 18);
+
+        name = (EditText) view.findViewById(R.id.name);
+        adjustUnitHeightSize(name);
+        adjustFontSize(name, 18);
+
+
 //		ImageView passwordLeft = (ImageView) view
 //				.findViewById(R.id.password_left);
 //		adjustUnitSize(passwordLeft, 13);
@@ -397,12 +398,12 @@ public class RegisterView extends AbstractView implements Http.Callback,
 //				.findViewById(R.id.password_again_right);
 //		adjustUnitSize(passwordAgainRight, 13);
 
-		TextView registerMiddle = (TextView) view
-				.findViewById(R.id.register_middle);
-		adjustFullWidth(registerMiddle);
+        TextView registerMiddle = (TextView) view
+                .findViewById(R.id.register_middle);
+        adjustFullWidth(registerMiddle);
 //		adjustUnitSize(registerMiddle);
-		adjustUnitSize(registerMiddle);
-		adjustFontSize(registerMiddle);
+        adjustUnitSize(registerMiddle);
+        adjustFontSize(registerMiddle);
 
 //		ImageView registerLeft = (ImageView) view
 //				.findViewById(R.id.register_left);
@@ -415,154 +416,152 @@ public class RegisterView extends AbstractView implements Http.Callback,
 //		TextView passwordHint = (TextView) view
 //				.findViewById(R.id.password_hint);
 //		adjustSmallFontSize(passwordHint);
-		
-		
+
 
 //		TextView passwordAgainHint = (TextView) view
 //				.findViewById(R.id.password_again_hint);
 //		adjustSmallFontSize(passwordAgainHint);
 
-		TextView termText = (TextView) view.findViewById(R.id.term_text);
-		adjustSmallFontSize(termText);
-		
-		TextView serviceProtocol = (TextView) view.findViewById(R.id.service_protocol);
-		adjustSmallFontSize(serviceProtocol);
+        TextView termText = (TextView) view.findViewById(R.id.term_text);
+        adjustSmallFontSize(termText);
+
+        TextView serviceProtocol = (TextView) view.findViewById(R.id.service_protocol);
+        adjustSmallFontSize(serviceProtocol);
 
 //		readTerm = (ImageView) view.findViewById(R.id.read_term);
 //		adjustWidth(readTerm, 20);
-	}
+    }
 
-	@Override
-	public void onFling(MotionEvent start, MotionEvent end, float velocityX,
-			float velocityY) {
+    @Override
+    public void onFling(MotionEvent start, MotionEvent end, float velocityX,
+                        float velocityY) {
 
-	}
+    }
 
-	@Override
-	public void onBackPressed() {
-		MainActivity.instance.switchScreen(ViewFlyweight.LOGIN);
+    @Override
+    public void onBackPressed() {
+        MainActivity.instance.switchScreen(ViewFlyweight.LOGIN);
 
-	}
+    }
 
-	@Override
-	public void onTouch(MotionEvent event) {
-		MainActivity.instance.hideKeyboard();
-	}
+    @Override
+    public void onTouch(MotionEvent event) {
+        MainActivity.instance.hideKeyboard();
+    }
 
-	@Override
-	public void onResume() {
+    @Override
+    public void onResume() {
 
-	}
+    }
 
-	@Override
-	public void onPause() {
+    @Override
+    public void onPause() {
 
-	}
-	
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-	}
+    }
 
-	@Override
-	public void onResponse(JSONObject jsonObject) {
-		Log.i(TAG, "onResponse");
-		Log.i(TAG, jsonObject.toString());
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+    }
 
-		JSONObject state;
-		try {
-			state = (JSONObject) jsonObject.get("state");
+    @Override
+    public void onResponse(JSONObject jsonObject) {
+        Log.i(TAG, "onResponse");
+        Log.i(TAG, jsonObject.toString());
 
-			if (state != null) {
-				Boolean success = (Boolean) state.get("success");
-				if (success) {
+        JSONObject state;
+        try {
+            state = (JSONObject) jsonObject.get("state");
 
-					JSONObject data = (JSONObject) jsonObject.get("data");
-					User user = new User(data);
-					UserManager mgr = UserManager.getInstance();
-					mgr.setUser(user);
+            if (state != null) {
+                Boolean success = (Boolean) state.get("success");
+                if (success) {
 
-					mHandler.sendEmptyMessage(CLEAR_TEXT);
+                    JSONObject data = (JSONObject) jsonObject.get("data");
+                    User user = new User(data);
+                    UserManager mgr = UserManager.getInstance();
+                    mgr.setUser(user);
 
-					MainActivity.instance.showMessage("注册成功，您的账号是"
-							+ phoneNumberText);
+                    mHandler.sendEmptyMessage(CLEAR_TEXT);
 
-					MainActivity.instance
-							.switchScreenInHandler(ViewFlyweight.LOGIN);
-				} else {
-					String message = (String) state.get("msg");
-					MainActivity.instance.showMessage(message);
-				}
-			}
+                    MainActivity.instance.showMessage("注册成功，您的账号是"
+                            + phoneNumberText);
 
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-	}
+                    MainActivity.instance
+                            .switchScreenInHandler(ViewFlyweight.LOGIN);
+                } else {
+                    String message = (String) state.get("msg");
+                    MainActivity.instance.showMessage(message);
+                }
+            }
 
-	@Override
-	public void setWebException(WebException webException) {
-		MainActivity.instance.showMessage("访问服务器出现错误了");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
-	}
+    @Override
+    public void setWebException(WebException webException) {
+        MainActivity.instance.showMessage("访问服务器出现错误了");
 
-	@Override
-	public void run() {
+    }
 
-		Log.i(TAG, "run");
-		Http http = Http.getInstance();
+    @Override
+    public void run() {
 
-		http.setCallback(RegisterView.this);
+        Log.i(TAG, "run");
+        Http http = Http.getInstance();
 
-		String url = "users/reg";
+        http.setCallback(RegisterView.this);
 
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("phone", phoneNumberText);
-		params.put("password", passwordText);
+        String url = "users/reg";
 
-		http.post(Http.SERVER + url, params);
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("phone", phoneNumberText);
+        params.put("password", passwordText);
 
-	}
-	
-	   
+        http.post(Http.SERVER() + url, params);
 
-	Handler mHandler = new Handler() {
+    }
 
-		public void handleMessage(Message message) {
 
-			switch (message.what) {
-			case UPDATE_TIMER:
+    Handler mHandler = new Handler() {
 
-				int count = message.arg1;
-				int number = 60 - count;
+        public void handleMessage(Message message) {
 
-				gainCaptchaMiddle.setText("获取验证码(" + number + ")");
-				if (number > 0) {
-					gainCaptchaMiddle.setTextColor(Color.GRAY);
-					gainCaptchaMiddle.setTextSize(16);
-					gainCaptchaClickable = false;
-				} else {
-					gainCaptchaMiddle.setText("获取验证码");
-					gainCaptchaMiddle.setTextColor(Color.argb(0xff, 0x43, 0xCC,
-							0x8D));
-					gainCaptchaClickable = true;
+            switch (message.what) {
+                case UPDATE_TIMER:
 
-					task.cancel();
-				}
-				break;
-			case CLEAR_TEXT:
-				phoneNumber.setText("");
-				captchaCode.setText("");
-				password.setText("");
+                    int count = message.arg1;
+                    int number = 60 - count;
+
+                    gainCaptchaMiddle.setText("获取验证码(" + number + ")");
+                    if (number > 0) {
+                        gainCaptchaMiddle.setTextColor(Color.GRAY);
+                        gainCaptchaMiddle.setTextSize(16);
+                        gainCaptchaClickable = false;
+                    } else {
+                        gainCaptchaMiddle.setText("获取验证码");
+                        gainCaptchaMiddle.setTextColor(Color.argb(0xff, 0x43, 0xCC,
+                                0x8D));
+                        gainCaptchaClickable = true;
+
+                        task.cancel();
+                    }
+                    break;
+                case CLEAR_TEXT:
+                    phoneNumber.setText("");
+                    captchaCode.setText("");
+                    password.setText("");
 //				passwordAgain.setText("");
-				break;
-			}
-		}
-	};
+                    break;
+            }
+        }
+    };
 
-	private ImageView back;
+    private ImageView back;
 
-	private LinearLayout gainCaptcha;
+    private LinearLayout gainCaptcha;
 
-	private TextView gainCaptchaMiddle;
+    private TextView gainCaptchaMiddle;
 
 }

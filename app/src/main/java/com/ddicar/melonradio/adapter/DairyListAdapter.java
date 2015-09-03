@@ -98,7 +98,7 @@ public class DairyListAdapter extends BaseAdapter implements Callback,
 		TextView title = (TextView) convertView
 				.findViewById(R.id.radio_content);
 
-		imageLoader.displayImage(Http.SERVER + "images/"
+		imageLoader.displayImage(Http.SERVER() + "images/"
 				+ items.get(position).get("pic"), image_head, options);
 
 		name.setText(items.get(position).get("author"));
@@ -293,7 +293,7 @@ public class DairyListAdapter extends BaseAdapter implements Callback,
 		System.out.println("userId = " + userId);
 		System.out.println("postId = " + postId);
 
-		http.post(Http.SERVER + url, params);
+		http.post(Http.SERVER() + url, params);
 	}
 
 	VelocityTracker velocityTracker;

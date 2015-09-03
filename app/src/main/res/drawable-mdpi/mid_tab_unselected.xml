@@ -2,8 +2,8 @@
 <shape
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <!-- 填充的颜色 -->
-    <solid android:color="@color/dark_tab" />
+
+    <stroke android:color="@color/light_tab" android:width="0.25dp"/>
 
     <!-- padding：Button里面的文字与Button边界的间隔 -->
     <padding

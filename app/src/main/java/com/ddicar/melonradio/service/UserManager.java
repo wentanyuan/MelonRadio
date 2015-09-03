@@ -45,7 +45,7 @@ public class UserManager implements Callback {
 
 		Map<String, Object> params = new HashMap<String, Object>();
 
-		http.post(Http.SERVER + url, params);
+		http.post(Http.SERVER() + url, params);
 
 	}
 

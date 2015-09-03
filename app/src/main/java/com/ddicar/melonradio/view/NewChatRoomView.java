@@ -74,7 +74,7 @@ public class NewChatRoomView extends AbstractView implements Callback {
 				Map<String, Object> params = new HashMap<String, Object>();
 				params.put("roomname", roomNameText);
 
-				http.post(Http.SERVER + url, params);
+				http.post(Http.SERVER ()+ url, params);
 
 			}
 		});

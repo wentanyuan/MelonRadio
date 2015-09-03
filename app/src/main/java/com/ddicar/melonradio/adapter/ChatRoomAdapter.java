@@ -24,6 +24,14 @@ public class ChatRoomAdapter extends BaseAdapter {
 
 	public ChatRoomAdapter() {
 		this.mInflater = LayoutInflater.from(MainActivity.instance);
+
+
+		for (int i = 0; i < 5; i++) {
+			HashMap<String, String> item = new HashMap<String, String>();
+			item.put("id", String.valueOf(i));
+			item.put("name", "聊天");
+			items.add(item);
+		}
 	}
 
 	@Override
@@ -45,7 +53,7 @@ public class ChatRoomAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		convertView = mInflater.inflate(R.layout.chat_room_item, null);
 		TextView name = (TextView) convertView
-				.findViewById(R.id.chat_room_name);
+				.findViewById(R.id.name);
 		name.setText(items.get(position).get("name"));
 		name.setTextSize(AndroidUtil.dependentFontSize(20));
 

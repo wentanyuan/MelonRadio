@@ -353,7 +353,7 @@ public class PersonalView extends AbstractView implements Callback {
 		// Map<String, File> files = new HashMap<String, File>();
 		// files.put("pic", file);
 
-		http.post(Http.SERVER + url, params, file);
+		http.post(Http.SERVER() + url, params, file);
 
 		// TODO asynchttpclient
 		// AsyncHttpClient client = new AsyncHttpClient();

@@ -39,7 +39,7 @@ public class ChatRoomManager implements Callback {
 
 		Map<String, String> params = new HashMap<String, String>();
 
-		http.get(Http.SERVER + url, params);
+		http.get(Http.SERVER() + url, params);
 	}
 
 	@Override

@@ -224,7 +224,7 @@ public class DdicarMapView extends Fragment implements OnMapLongClickListener,
 		params.put("latitude", point.latitude);
 		params.put("type", flag);
 
-		client.post(Http.SERVER + url, params, new JsonHttpResponseHandler() {
+		client.post(Http.SERVER() + url, params, new JsonHttpResponseHandler() {
 
 			@Override
 			public void onSuccess(int statusCode, Header[] headers,
@@ -519,7 +519,7 @@ public class DdicarMapView extends Fragment implements OnMapLongClickListener,
 			params.put("latitude", aLocation.getLatitude());
 			params.put("type", flag);
 
-			client.post(Http.SERVER + url, params,
+			client.post(Http.SERVER() + url, params,
 					new JsonHttpResponseHandler() {
 
 						@Override

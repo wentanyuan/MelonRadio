@@ -102,13 +102,13 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
-            android:gravity="center"
+            android:gravity="center_vertical"
             >
 
             <ImageView
                 android:layout_width="13.5dp"
                 android:layout_height="26.5dp"
-                android:src="@drawable/arrow_right" />
+                android:src="@drawable/arrow_icon" />
 
         </RelativeLayout>
     </RelativeLayout>

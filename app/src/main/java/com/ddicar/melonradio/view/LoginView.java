@@ -50,7 +50,6 @@ public class LoginView extends AbstractView implements Callback {
     private EditText password;
     private TextView forgetPassword;
 
-
     @Override
     public void onSwitchOff() {
 
@@ -137,23 +136,23 @@ public class LoginView extends AbstractView implements Callback {
                     return;
                 }
 
-//                Http http = Http.getInstance();
-//
-//                http.setCallback(new LoginCallback());
-//
-//                String url = "users/login";
-//
-//                Map<String, Object> params = new HashMap<String, Object>();
-//                params.put("phone", userNameText);
-//                params.put("password", passwordText);
-//
-//                http.post(Http.SERVER + url, params);
+                Http http = Http.getInstance();
+
+                http.setCallback(new LoginCallback());
+
+                String url = "users/login";
+
+                Map<String, Object> params = new HashMap<String, Object>();
+                params.put("phone", userNameText);
+                params.put("password", passwordText);
+
+                http.post(Http.SERVER() + url, params);
 
 
-                UserManager user = UserManager.getInstance();
-                user.setUser(new User());
-                user.getUser().name = userName.getText().toString();
-                MainActivity.instance.switchScreen(ViewFlyweight.MAIN_VIEW);
+//                UserManager user = UserManager.getInstance();
+//                user.setUser(new User());
+//                user.getUser().name = userName.getText().toString();
+//                MainActivity.instance.switchScreen(ViewFlyweight.MAIN_VIEW);
             }
         });
         forgetPassword.setOnClickListener(new OnClickListener() {
@@ -242,7 +241,6 @@ public class LoginView extends AbstractView implements Callback {
 
         @Override
         public void onResponse(JSONObject jsonObject) {
-            Log.e(TAG, "Http.Callback");
             Log.e(TAG, jsonObject.toString());
 
             JSONObject state;
