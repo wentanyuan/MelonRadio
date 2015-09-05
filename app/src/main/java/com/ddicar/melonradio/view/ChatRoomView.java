@@ -68,4 +68,8 @@ public class ChatRoomView extends AbstractView {
     public void onSaveInstanceState(Bundle outState) {
 
     }
+
+    public void render(int position) {
+        //TODO show the chat room.
+    }
 }

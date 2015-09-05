@@ -8,11 +8,14 @@ import android.widget.RelativeLayout;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
-import com.ddicar.melonradio.adapter.RoomAdapter;
+import com.ddicar.melonradio.adapter.InvitationAdapter;
+import com.ddicar.melonradio.service.InvitationManager;
 
 
 public class InvitationView extends AbstractView {
 
+
+    private InvitationAdapter invitationAdapter;
 
     @Override
     public void onSwitchOff() {
@@ -21,7 +24,7 @@ public class InvitationView extends AbstractView {
 
     @Override
     public void auto() {
-        RelativeLayout cancel = (RelativeLayout)view.findViewById(R.id.cancel);
+        RelativeLayout cancel = (RelativeLayout) view.findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,8 +32,11 @@ public class InvitationView extends AbstractView {
             }
         });
 
-        ListView rooms = (ListView) view.findViewById(R.id.rooms);
-        rooms.setAdapter(new RoomAdapter());
+        ListView invitations = (ListView) view.findViewById(R.id.rooms);
+        invitationAdapter = new InvitationAdapter();
+        invitations.setAdapter(invitationAdapter);
+
+        InvitationManager invitationManager = InvitationManager.getInstance();
 
     }
 
@@ -62,5 +68,9 @@ public class InvitationView extends AbstractView {
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
+    }
+
+    public void render() {
+        invitationAdapter.render();
     }
 }

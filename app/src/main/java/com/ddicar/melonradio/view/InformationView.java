@@ -16,7 +16,10 @@ import android.widget.TextView;
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 import com.ddicar.melonradio.adapter.ChatRoomAdapter;
-import com.ddicar.melonradio.adapter.MessageAdapter;
+import com.ddicar.melonradio.adapter.MessageGroupAdapter;
+import com.ddicar.melonradio.service.ChatRoomManager;
+import com.ddicar.melonradio.service.GroupMessageManager;
+import com.ddicar.melonradio.service.MessageGroupManager;
 import com.ddicar.melonradio.util.AndroidUtil;
 
 
@@ -31,6 +34,8 @@ public class InformationView extends AbstractView {
     private TextView infoText;
     private RelativeLayout chatRoomBackground;
     private TextView chatRoomText;
+    private ChatRoomAdapter chatRoomAdapter;
+    private MessageGroupAdapter messageGroupAdapter;
 
     @Override
     public void onSwitchOff() {
@@ -81,31 +86,34 @@ public class InformationView extends AbstractView {
         });
 
         messages = (ListView) view.findViewById(R.id.messages);
-        messages.setAdapter(new MessageAdapter());
+        messageGroupAdapter = new MessageGroupAdapter();
+        messages.setAdapter(messageGroupAdapter);
         messages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.e(TAG, "information_list clicked");
                 MainActivity.instance.switchScreen(ViewFlyweight.INFORMATION_DETAIL_VIEW);
+                ViewFlyweight.INFORMATION_DETAIL_VIEW.render(position);
             }
         });
 
 
-
         chatRooms = (ListView) view.findViewById(R.id.chat_rooms);
-        chatRooms.setAdapter(new ChatRoomAdapter());
+        chatRoomAdapter = new ChatRoomAdapter();
+        chatRooms.setAdapter(chatRoomAdapter);
         chatRooms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.e(TAG, "chat_room_list clicked");
                 MainActivity.instance.switchScreen(ViewFlyweight.CHAT_ROOM);
+                ViewFlyweight.CHAT_ROOM.render(position);
             }
         });
 
-        infoBackground = (RelativeLayout)view.findViewById(R.id.info_tab_background);
-        infoText = (TextView)view.findViewById(R.id.info_tab_text);
-        chatRoomBackground = (RelativeLayout)view.findViewById(R.id.chat_tab_background);
-        chatRoomText = (TextView)view.findViewById(R.id.chat_tab_text);
+        infoBackground = (RelativeLayout) view.findViewById(R.id.info_tab_background);
+        infoText = (TextView) view.findViewById(R.id.info_tab_text);
+        chatRoomBackground = (RelativeLayout) view.findViewById(R.id.chat_tab_background);
+        chatRoomText = (TextView) view.findViewById(R.id.chat_tab_text);
 
         RelativeLayout infoTab = (RelativeLayout) view.findViewById(R.id.info_tab);
 
@@ -123,7 +131,6 @@ public class InformationView extends AbstractView {
         });
 
 
-
         RelativeLayout chatTab = (RelativeLayout) view.findViewById(R.id.chat_tab);
 
         chatTab.setOnClickListener(new View.OnClickListener() {
@@ -138,6 +145,10 @@ public class InformationView extends AbstractView {
                 chatRoomText.setTextColor(AndroidUtil.parseColor(R.color.dark_text));
             }
         });
+
+
+        MessageGroupManager messageGroupManager = MessageGroupManager.getInstance();
+        messageGroupManager.listMessageGroups();
 
     }
 
@@ -169,5 +180,13 @@ public class InformationView extends AbstractView {
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
+    }
+
+    public void renderChatRoom() {
+        chatRoomAdapter.render();
+    }
+
+    public void renderMessageGroup() {
+        messageGroupAdapter.render();
     }
 }

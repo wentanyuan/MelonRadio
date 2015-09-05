@@ -30,7 +30,7 @@ public class AboutView extends AbstractView {
 			@Override
 			public void onClick(View arg0) {
 				MainActivity.instance
-						.switchScreen(ViewFlyweight.SOFTWARE_SETTING);
+						.switchScreen(ViewFlyweight.SETTINGS);
 			}
 		});
 
@@ -38,18 +38,18 @@ public class AboutView extends AbstractView {
 
 	private void adjustUI() {
 		TextView aboutTitle = (TextView) view.findViewById(R.id.about_title);
-		adjustTitleBarUnitSize(aboutTitle);
-		adjustFontSize(aboutTitle);
+//		adjustTitleBarUnitSize(aboutTitle);
+//		adjustFontSize(aboutTitle);
 
 		back = (ImageView) view.findViewById(R.id.button_back);
-		adjustTitleBarUnitSize(back);
+//		adjustTitleBarUnitSize(back);
 
 		RelativeLayout titleBar = (RelativeLayout) view
 				.findViewById(R.id.title_bar);
-		adjustTitleBarUnitSize(titleBar);
+//		adjustTitleBarUnitSize(titleBar);
 
 		TextView about = (TextView) view.findViewById(R.id.about_text);
-		adjustFullWidth(about, 10);
+//		adjustFullWidth(about, 10);
 
 //		int[] sizes = MainActivity.instance.getWindowSize();
 
@@ -58,17 +58,17 @@ public class AboutView extends AbstractView {
 //		int density = sizes[2];
 
 //		if (density < 400) {
-			adjustDependentFontSize(about, 18);
+//			adjustDependentFontSize(about, 18);
 //		} else {
 //			adjustDependentFontSize(about, 35);
 //		}
 
 		LinearLayout logoContainer = (LinearLayout) view
 				.findViewById(R.id.logo_container);
-		adjustAndroidMargin(logoContainer, 0, 40, 0, 40);
+//		adjustAndroidMargin(logoContainer, 0, 40, 0, 40);
 
 		ImageView logo = (ImageView) view.findViewById(R.id.logo);
-		adjustWidth(logo, 100);
+//		adjustWidth(logo, 100);
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class AboutView extends AbstractView {
 
 	@Override
 	public void onBackPressed() {
-		MainActivity.instance.switchScreen(ViewFlyweight.SOFTWARE_SETTING);
+		MainActivity.instance.switchScreen(ViewFlyweight.SETTINGS);
 
 	}
 

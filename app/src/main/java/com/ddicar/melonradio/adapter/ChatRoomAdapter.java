@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.ddicar.melonradio.util.AndroidUtil;
 
 public class ChatRoomAdapter extends BaseAdapter {
 
+	private static final String TAG = "ChatRoomAdapter";
 	private LayoutInflater mInflater;
 	List<HashMap<String, String>> items = new ArrayList<HashMap<String, String>>();
 
@@ -55,12 +57,12 @@ public class ChatRoomAdapter extends BaseAdapter {
 		TextView name = (TextView) convertView
 				.findViewById(R.id.name);
 		name.setText(items.get(position).get("name"));
-		name.setTextSize(AndroidUtil.dependentFontSize(20));
 
 		return convertView;
 	}
 
-	public void reloadItems() {
+	public void render() {
+		Log.e(TAG, "render");
 		items.clear();
 		ChatRoomManager manager = ChatRoomManager.getInstance();
 		List<ChatRoom> rooms = manager.getRooms();
@@ -72,8 +74,7 @@ public class ChatRoomAdapter extends BaseAdapter {
 			item.put("_id", room._id);
 			item.put("name", room.name);
 			items.add(item);
-			this.notifyDataSetChanged();
 		}
-
+		this.notifyDataSetChanged();
 	}
 }

@@ -5,13 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
-import com.ddicar.melonradio.view.ViewFlyweight;
+import com.ddicar.melonradio.model.User;
+import com.ddicar.melonradio.service.ContactManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,21 +61,30 @@ public class ContactAdapter extends BaseAdapter {
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
         name.setText(items.get(position).get("name"));
-//
-//        TextView phone = (TextView) convertView.findViewById(R.id.phone);
-//        phone.setText(items.get(position).get("phone"));
-//
-//
-//        RelativeLayout add = (RelativeLayout) convertView.findViewById(R.id.add);
-//
-//        add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                MainActivity.instance.switchScreen(ViewFlyweight.VERIFICATION);
-//            }
-//        });
 
         return convertView;
     }
 
+    public void render() {
+        ContactManager manager = ContactManager.getInstance();
+
+
+        items.clear();
+        List<User> contacts = manager.getContacts();
+
+        for (int i = 0; i < contacts.size(); i++) {
+            User user = contacts.get(i);
+
+            HashMap<String, String> item = new HashMap<String, String>();
+
+            item.put("id", String.valueOf(i));
+            item.put("_id", user._id);
+            item.put("name", user.name);
+
+            items.add(item);
+        }
+
+        notifyDataSetChanged();
+
+    }
 }

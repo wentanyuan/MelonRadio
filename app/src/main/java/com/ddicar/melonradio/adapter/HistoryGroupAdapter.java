@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
@@ -27,14 +28,14 @@ public class HistoryGroupAdapter extends BaseAdapter {
     public HistoryGroupAdapter() {
         this.mInflater = LayoutInflater.from(MainActivity.instance);
 
-        for (int i = 0; i < 5; i++) {
-            HashMap<String, String> item = new HashMap<String, String>();
-            item.put("id", String.valueOf(i));
-            item.put("group", "group");
-            item.put("name", "[北京-天津]运单群组");
-            item.put("message", "临时有一批货物，在前方西青区普洛斯物");
-            items.add(item);
-        }
+//        for (int i = 0; i < 5; i++) {
+//            HashMap<String, String> item = new HashMap<String, String>();
+//            item.put("id", String.valueOf(i));
+//            item.put("group", "group");
+//            item.put("name", "[北京-天津]运单群组");
+//            item.put("message", "临时有一批货物，在前方西青区普洛斯物");
+//            items.add(item);
+//        }
 
     }
 
@@ -71,10 +72,20 @@ public class HistoryGroupAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Log.e(TAG, "getView");
-        convertView = mInflater.inflate(R.layout.information_item, null);
+        convertView = mInflater.inflate(R.layout.history_group_item, null);
+
+        ImageView group = (ImageView) convertView.findViewById(R.id.group);
+//        group.setText(items.get(position).get("name"));
+        //TODO render avatar.
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
         name.setText(items.get(position).get("name"));
+
+        TextView message = (TextView) convertView.findViewById(R.id.message);
+        message.setText(items.get(position).get("message"));
+
+        TextView time = (TextView) convertView.findViewById(R.id.time);
+        time.setText(items.get(position).get("time"));
 
         return convertView;
     }

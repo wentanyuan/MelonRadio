@@ -9,10 +9,7 @@ import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
-import com.ddicar.melonradio.adapter.ContactAdapter;
-import com.ddicar.melonradio.adapter.FriendAdapter;
-import com.ddicar.melonradio.adapter.InviteContactAdapter;
-import com.ddicar.melonradio.adapter.RoomAdapter;
+import com.ddicar.melonradio.adapter.InviteAdapter;
 
 
 public class InviteView extends AbstractView {
@@ -43,7 +40,8 @@ public class InviteView extends AbstractView {
 
         ListView contactList = (ListView) view.findViewById(R.id.list_contacts);
 
-        contactList.setAdapter(new InviteContactAdapter());
+        InviteAdapter inviteContactAdapter = new InviteAdapter();
+        contactList.setAdapter(inviteContactAdapter);
 
         contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

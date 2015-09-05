@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="5dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -26,7 +26,7 @@
             android:gravity="center_vertical"
             android:text="黄宇"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="13sp" />
 
     </LinearLayout>
 

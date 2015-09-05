@@ -1,13 +1,6 @@
 package com.ddicar.melonradio.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.util.Log;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.model.ChatRoom;
@@ -16,83 +9,101 @@ import com.ddicar.melonradio.web.Http;
 import com.ddicar.melonradio.web.Http.Callback;
 import com.ddicar.melonradio.web.WebException;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class ChatRoomManager implements Callback {
 
-	private static ChatRoomManager instance = null;
+    private static final String TAG = "ChatRoomManager";
+    private static ChatRoomManager instance = null;
 
-	private List<ChatRoom> rooms = new ArrayList<ChatRoom>();
 
-	public static ChatRoomManager getInstance() {
-		if (instance == null) {
-			instance = new ChatRoomManager();
-		}
-		return instance;
-	}
+    int current ;
 
-	public void list() {
+    private List<ChatRoom> rooms = new ArrayList<ChatRoom>();
 
-		Http http = Http.getInstance();
+    public static ChatRoomManager getInstance() {
+        if (instance == null) {
+            instance = new ChatRoomManager();
+        }
+        return instance;
+    }
 
-		http.setCallback(ChatRoomManager.this);
+    public void listChatRooms() {
 
-		String url = "room/getList";
+        Http http = Http.getInstance();
 
-		Map<String, String> params = new HashMap<String, String>();
+        http.setCallback(ChatRoomManager.this);
 
-		http.get(Http.SERVER() + url, params);
-	}
+        String url = "room/getList";
 
-	@Override
-	public void onResponse(JSONObject jsonObject) {
+        Map<String, String> params = new HashMap<String, String>();
 
-		JSONObject state;
-		try {
-			state = (JSONObject) jsonObject.get("state");
-			if (state != null) {
-				Boolean success = (Boolean) state.get("success");
-				if (success) {
-					JSONArray data = (JSONArray) jsonObject.get("data");
+        http.get(Http.SERVER() + url, params);
+    }
 
-					this.rooms.clear();
+    @Override
+    public void onResponse(JSONObject jsonObject) {
+        Log.e(TAG, jsonObject.toString());
+        JSONObject state;
+        try {
+            state = (JSONObject) jsonObject.get("state");
+            if (state != null) {
+                Boolean success = (Boolean) state.get("success");
+                if (success) {
+                    JSONArray chatRooms = (JSONArray) jsonObject.get("data");
+                    clear();
+                    for (int i = 0; i < chatRooms.length(); i++) {
+                        JSONObject json = chatRooms.getJSONObject(i);
+                        addChatRooms(new ChatRoom(json));
+                    }
 
-					// for (int i = 0; i < data.length(); i++) {
-					for (int i = data.length() - 1; i >= 0; i--) {
-						JSONObject json = data.getJSONObject(i);
-						ChatRoom room = new ChatRoom(json);
-						this.rooms.add(room);
+                    ViewFlyweight.INFO_VIEW.renderChatRoom();
 
-						ViewFlyweight.CHATROOMS.refresh();
-					}
+                } else {
+                    String message = (String) state.get("msg");
+                    MainActivity.instance.showMessage(message);
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
-				} else {
-					String message = (String) state.get("msg");
-					MainActivity.instance.showMessage(message);
-				}
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void setWebException(WebException webException) {
+        Log.e(TAG, "setWebException");
+        MainActivity.instance.showMessage("访问服务器出现错误了");
+    }
 
-	@Override
-	public void setWebException(WebException webException) {
-		MainActivity.instance.showMessage("访问服务器出现错误了");
-	}
+    public List<ChatRoom> getRooms() {
+        Log.e(TAG, "getRooms");
+        return rooms;
+    }
 
-	public List<ChatRoom> getRooms() {
-		return rooms;
-	}
+    public ChatRoom getRoom(int position) {
+        Log.e(TAG, "getRoom");
+        return rooms.get(position);
+    }
 
-	public ChatRoom getRoom(int position) {
-		return rooms.get(position);
-	}
+    public void clear() {
+        Log.e(TAG, "clear");
+        rooms.clear();
+    }
 
-	public void clear() {
-		rooms.clear();
-	}
+    public void addChatRooms(ChatRoom room) {
+        Log.e(TAG, "addChatRooms");
+        rooms.add(room);
+    }
 
-	public void add(ChatRoom room) {
-		rooms.add(room);
-	}
+    public void setCurrent(int current) {
+        this.current = current;
+    }
 
 }

@@ -59,6 +59,7 @@
         >
 
         <EditText
+            android:id="@+id/room_name"
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:background="@null"

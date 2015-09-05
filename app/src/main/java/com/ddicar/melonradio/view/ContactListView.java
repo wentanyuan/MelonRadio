@@ -7,15 +7,24 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 import com.ddicar.melonradio.adapter.ContactAdapter;
+import com.ddicar.melonradio.model.User;
+import com.ddicar.melonradio.service.ContactManager;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
 
 
 public class ContactListView extends AbstractView {
 
+
+    private ContactAdapter contactAdapter;
 
     @Override
     public void onSwitchOff() {
@@ -25,7 +34,7 @@ public class ContactListView extends AbstractView {
     @Override
     public void auto() {
 
-        ImageView add = (ImageView)view.findViewById(R.id.add_button);
+        ImageView add = (ImageView) view.findViewById(R.id.add_button);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +43,7 @@ public class ContactListView extends AbstractView {
             }
         });
 
-        RelativeLayout cancel = (RelativeLayout)view.findViewById(R.id.cancel);
+        RelativeLayout cancel = (RelativeLayout) view.findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,14 +79,20 @@ public class ContactListView extends AbstractView {
 
         ListView contactList = (ListView) view.findViewById(R.id.list_contacts);
 
-        contactList.setAdapter(new ContactAdapter());
+        contactAdapter = new ContactAdapter();
+        contactList.setAdapter(contactAdapter);
 
         contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 MainActivity.instance.switchScreen(ViewFlyweight.CONTACT_VIEW);
+
+                ViewFlyweight.CONTACT_VIEW.render(position);
             }
         });
+
+        ContactManager manager = ContactManager.getInstance();
+        manager.listContacts();
     }
 
     @Override
@@ -108,5 +123,9 @@ public class ContactListView extends AbstractView {
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
+    }
+
+    public void render() {
+        contactAdapter.render();
     }
 }

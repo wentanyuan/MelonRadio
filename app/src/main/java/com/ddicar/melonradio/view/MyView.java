@@ -26,6 +26,7 @@ public class MyView extends AbstractView {
     private static final String TAG = "MyView";
 
     private TextView userName;
+    private TextView teamName;
 
     ImageView avatar;
     private ImageLoader imageLoader;
@@ -94,16 +95,17 @@ public class MyView extends AbstractView {
     private void adjustUI() {
         Log.e(TAG, "adjustUI");
 
-        userName = (TextView) view.findViewById(
-                R.id.user_register_name);
+        userName = (TextView) view.findViewById(R.id.user_register_name);
+        teamName = (TextView) view.findViewById(R.id.team_name);
 
         UserManager user = UserManager.getInstance();
         userName.setText(user.getUser().name);
+        teamName.setText(user.getUser().team.name);
 
         baseInformation = (RelativeLayout) view.findViewById(
                 R.id.base_information);
         avatar = (ImageView) view.findViewById(
-                R.id.head_image);
+                R.id.avatar);
         baseInformation.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {

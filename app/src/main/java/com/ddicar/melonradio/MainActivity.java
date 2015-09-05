@@ -376,12 +376,12 @@ public class MainActivity extends Activity implements OnGestureListener,
 			break;
 		// 取得裁剪后的图片
 		case PHOTO_CLIP:
-			if (null != data) {
-				ViewFlyweight.PERSONAL.setPicToView(data);
-				mPhotoPath = null;
-			} else {
-				switchScreen(ViewFlyweight.PERSONAL);
-			}
+//			if (null != data) {
+//				ViewFlyweight.PERSONAL.setPicToView(data);
+//				mPhotoPath = null;
+//			} else {
+//				switchScreen(ViewFlyweight.PERSONAL);
+//			}
 			break;
 		// 如果是直接从相册获取
 		case PHOTO_ALBUM:

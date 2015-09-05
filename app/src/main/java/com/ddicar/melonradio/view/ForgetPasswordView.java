@@ -123,94 +123,17 @@ public class ForgetPasswordView extends AbstractView {
     }
 
     private void adjustUI() {
-//		TextView forgetPasswordTitle = (TextView) view
-//				.findViewById(R.id.forget_password_title);
-//		adjustTitleBarUnitSize(forgetPasswordTitle);
-//		adjustFontSize(forgetPasswordTitle);
-
         back = (TextView) view.findViewById(R.id.button_back);
-//		adjustTitleBarUnitSize(back);
 
-        RelativeLayout titleBar = (RelativeLayout) view
-                .findViewById(R.id.title_bar);
-//		adjustTitleBarUnitSize(titleBar);
 
         phoneNumber = (EditText) view.findViewById(R.id.phone_number);
-//		adjustFullWidth(phoneNumber);
-//		adjustUnitSize(phoneNumber);
-//		adjustUnitHeightSize(phoneNumber);
-//		adjustFontSize(phoneNumber,18);
 
-//		ImageView phoneNumberLeft = (ImageView) view
-//				.findViewById(R.id.phone_number_left);
-//		adjustUnitSize(phoneNumberLeft, 13);
-//
-//		ImageView phoneNumberRight = (ImageView) view
-//				.findViewById(R.id.phone_number_right);
-//		adjustUnitSize(phoneNumberRight, 13);
 
         captchaCode = (EditText) view.findViewById(R.id.captcha_code);
-//		adjustFullWidth(captchaCode, 400);
-//		adjustUnitSize(captchaCode);
-//		adjustUnitHeightSize(captchaCode);
-//		adjustFontSize(captchaCode,18);
 
-        LinearLayout captchaContainer = (LinearLayout) view
-                .findViewById(R.id.captcha_container);
-//		adjustMargin(captchaContainer, 0, 0, 13, 0);
+        gainCaptchaMiddle = (TextView) view.findViewById(R.id.gain_captcha);
 
-//		ImageView captchaCodeLeft = (ImageView) view
-//				.findViewById(R.id.captcha_code_left);
-//		adjustUnitSize(captchaCodeLeft, 13);
-//
-//		ImageView captchaCodeRight = (ImageView) view
-//				.findViewById(R.id.captcha_code_right);
-//		adjustUnitSize(captchaCodeRight, 13);
 
-        gainCaptchaMiddle = (TextView) view
-                .findViewById(R.id.gain_captcha);
-//		adjustUnitSize(gainCaptchaMiddle);
-//		adjustUnitHeightSize(gainCaptchaMiddle);
-//		adjustMediumFontSize(gainCaptchaMiddle);
-//		adjustFontSize(gainCaptchaMiddle,18);
-//		adjustFixedWidth(gainCaptchaMiddle, 390);
-
-//		ImageView gainCaptchaLeft = (ImageView) view
-//				.findViewById(R.id.gain_captcha_left);
-//		adjustUnitSize(gainCaptchaLeft, 13);
-//
-//		ImageView gainCaptchaRight = (ImageView) view
-//				.findViewById(R.id.gain_captcha_right);
-//		adjustUnitSize(gainCaptchaRight, 13);
-
-//		password = (EditText) view.findViewById(R.id.new_password);
-//		adjustFullWidth(password);
-//		adjustUnitSize(password);
-//		adjustUnitHeightSize(password);;
-//		adjustFontSize(password,18);
-
-//		ImageView passwordLeft = (ImageView) view
-//				.findViewById(R.id.new_password_left);
-//		adjustUnitSize(passwordLeft, 13);
-//
-//		ImageView passwordRight = (ImageView) view
-//				.findViewById(R.id.new_password_right);
-//		adjustUnitSize(passwordRight, 13);
-//
-//		TextView resetPasswordMiddle = (TextView) view
-//				.findViewById(R.id.reset_password_middle);
-//		adjustFullWidth(resetPasswordMiddle);
-//		adjustUnitSize(resetPasswordMiddle);
-//		adjustUnitSize(resetPasswordMiddle);
-//		adjustFontSize(resetPasswordMiddle);
-
-//		ImageView resetPasswordLeft = (ImageView) view
-//				.findViewById(R.id.reset_password_left);
-//		adjustUnitSize(resetPasswordLeft, 13);
-//
-//		ImageView resetPasswordRight = (ImageView) view
-//				.findViewById(R.id.reset_password_right);
-//		adjustUnitSize(resetPasswordRight, 13);
 
     }
 
@@ -256,7 +179,6 @@ public class ForgetPasswordView extends AbstractView {
             message.what = UPDATE_TIMER;
             message.arg1 = count;
             mHandler.sendMessage(message);
-            // System.out.println("task running.." + count);
             count++;
         }
 

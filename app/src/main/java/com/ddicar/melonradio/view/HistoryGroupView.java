@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 import com.ddicar.melonradio.adapter.HistoryGroupAdapter;
-import com.ddicar.melonradio.adapter.MessageAdapter;
 
 
 public class HistoryGroupView extends AbstractView {

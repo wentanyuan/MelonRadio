@@ -6,18 +6,18 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 import com.ddicar.melonradio.adapter.PhoneBookAdapter;
+import com.ddicar.melonradio.service.AddressBookManager;
 
 
 public class AddFromPhoneBookView extends AbstractView {
 
 
     private static final String TAG = "AddFromPhoneBookView";
-    private PhoneBookAdapter adapter;
+    private PhoneBookAdapter phoneBookAdapter;
 
     @Override
     public void onSwitchOff() {
@@ -36,9 +36,11 @@ public class AddFromPhoneBookView extends AbstractView {
         });
 
         ListView phoneBookList = (ListView) view.findViewById(R.id.phone_book_list);
-        adapter = new PhoneBookAdapter();
-        phoneBookList.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        phoneBookAdapter = new PhoneBookAdapter();
+        phoneBookList.setAdapter(phoneBookAdapter);
+
+        AddressBookManager manager = AddressBookManager.getInstance();
+        manager.listAddressBook();
 
     }
 
@@ -70,5 +72,10 @@ public class AddFromPhoneBookView extends AbstractView {
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
+    }
+
+    public void render() {
+        Log.e(TAG, "render");
+        phoneBookAdapter.render();
     }
 }

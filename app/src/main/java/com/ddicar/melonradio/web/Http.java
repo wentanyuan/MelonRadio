@@ -7,6 +7,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -44,8 +45,6 @@ public class Http {
         return instance;
     }
 
-
-
     public static String SERVER() {
         if (version == STAGING) {
             return "http://192.168.1.100:8080/sample/";
@@ -77,30 +76,41 @@ public class Http {
             }
         }
         Log.e(TAG, url);
-        client.get(url, realParams, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers,
-                                  JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
-                callback.onResponse(response);
-            }
+        if (version == PROD || version == STAGING) {
+            client.get(url, realParams, new JsonHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers,
+                                      JSONObject response) {
+                    super.onSuccess(statusCode, headers, response);
+                    callback.onResponse(response);
+                }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers,
-                                  Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-                Log.e(TAG, "onFailure " + errorResponse + " " + throwable);
-                callback.setWebException(new WebException("发生错误"));
-            }
+                @Override
+                public void onFailure(int statusCode, Header[] headers,
+                                      Throwable throwable, JSONObject errorResponse) {
+                    super.onFailure(statusCode, headers, throwable, errorResponse);
+                    Log.e(TAG, "onFailure 1 " + errorResponse + " @ " + throwable);
+                    callback.setWebException(new WebException(throwable.toString()));
+                }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers,
-                                  String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                Log.e(TAG, "onFailure " + responseString + " " + throwable);
-                callback.setWebException(new WebException("发生错误"));
+                @Override
+                public void onFailure(int statusCode, Header[] headers,
+                                      String responseString, Throwable throwable) {
+                    super.onFailure(statusCode, headers, responseString, throwable);
+                    Log.e(TAG, "onFailure 2 " + responseString + " @ " + throwable);
+                    callback.setWebException(new WebException(throwable.toString()));
+                }
+            });
+
+        } else {
+            JSONObject json = new JSONObject();
+            try {
+                json.put("success", true);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        });
+            callback.onResponse(json);
+        }
 
     }
 
@@ -189,30 +199,47 @@ public class Http {
 
         Log.e(TAG, "post : " + url);
 
-        client.post(url, realParams, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers,
-                                  JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
-                callback.onResponse(response);
-            }
+        if (version == PROD || version == STAGING) {
+            client.post(url, realParams, new JsonHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers,
+                                      JSONObject response) {
+                    super.onSuccess(statusCode, headers, response);
+                    callback.onResponse(response);
+                }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers,
-                                  Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-                Log.e(TAG, "onFailure " + errorResponse + " " + throwable);
-                callback.setWebException(new WebException("发生错误"));
-            }
+                @Override
+                public void onFailure(int statusCode, Header[] headers,
+                                      Throwable throwable, JSONObject errorResponse) {
+                    super.onFailure(statusCode, headers, throwable, errorResponse);
+                    Log.e(TAG, "onFailure " + errorResponse + " @ " + throwable);
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers,
-                                  String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                Log.e(TAG, "onFailure " + responseString + " " + throwable);
-                callback.setWebException(new WebException("发生错误"));
+                    String message = "";
+                    if (errorResponse != null) {
+                        message = errorResponse.toString();
+                    }
+                    WebException webException = new WebException(message);
+                    callback.setWebException(webException);
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers,
+                                      String responseString, Throwable throwable) {
+                    super.onFailure(statusCode, headers, responseString, throwable);
+                    Log.e(TAG, "onFailure " + responseString + " @ " + throwable);
+                    callback.setWebException(new WebException(throwable.toString()));
+                }
+            });
+
+        } else {
+            JSONObject json = new JSONObject();
+            try {
+                json.put("success", true);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        });
+            callback.onResponse(json);
+        }
 
     }
 }

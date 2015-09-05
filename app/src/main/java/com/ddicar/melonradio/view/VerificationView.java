@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
+import com.ddicar.melonradio.model.AddressBook;
+import com.ddicar.melonradio.service.AddContactManager;
+import com.ddicar.melonradio.service.UserManager;
 
 
 public class VerificationView extends AbstractView {
@@ -35,11 +38,18 @@ public class VerificationView extends AbstractView {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.instance.switchScreen(ViewFlyweight.ADD_FROM_PHONE_BOOK);
+
+                AddContactManager manager = AddContactManager.getInstance();
+
+                manager.sendInvitation(message.getText().toString());
+
             }
         });
 
         message = (EditText) view.findViewById(R.id.text_message);
+
+        UserManager manager = UserManager.getInstance();
+        message.setText("我是" + manager.getUser().name);
 
         TextView clearText = (TextView)view.findViewById(R.id.clear_text);
         clearText.setOnClickListener(new View.OnClickListener() {

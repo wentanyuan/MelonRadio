@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
+import com.ddicar.melonradio.model.AddressBook;
+import com.ddicar.melonradio.service.AddContactManager;
+import com.ddicar.melonradio.service.AddressBookManager;
 import com.ddicar.melonradio.view.ViewFlyweight;
 
 import java.util.ArrayList;
@@ -29,14 +32,6 @@ public class PhoneBookAdapter extends BaseAdapter {
     public PhoneBookAdapter() {
         this.mInflater = LayoutInflater.from(MainActivity.instance);
 
-        for (int i = 0; i < 5; i++) {
-            HashMap<String, String> item = new HashMap<String, String>();
-            item.put("id", String.valueOf(i));
-            item.put("name", "黄宇");
-            item.put("phone", "13210230098");
-            items.add(item);
-        }
-
     }
 
     @Override
@@ -55,27 +50,55 @@ public class PhoneBookAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         Log.e(TAG, "getView");
         convertView = mInflater.inflate(R.layout.phone_book_item, null);
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
-        name.setText(items.get(position).get("name"));
+        name.setText(items.get(position).get("displayName"));
 
         TextView phone = (TextView) convertView.findViewById(R.id.phone);
-        phone.setText(items.get(position).get("phone"));
-
+        phone.setText(items.get(position).get("phoneNumber"));
 
         RelativeLayout add = (RelativeLayout) convertView.findViewById(R.id.add);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AddressBookManager addressBookManager =  AddressBookManager.getInstance();
+
+                AddContactManager addContactManager =  AddContactManager.getInstance();
+                addContactManager.setAddressBook(addressBookManager.getAddressBook(position));
+
                 MainActivity.instance.switchScreen(ViewFlyweight.VERIFICATION);
+
             }
         });
 
         return convertView;
     }
 
+    public void render() {
+        Log.e(TAG, "render");
+        AddressBookManager manager = AddressBookManager.getInstance();
+
+        List<AddressBook> addressBooks = manager.getAddressBooks();
+
+        items.clear();
+
+        for (int i = 0; i < addressBooks.size(); i++) {
+
+            Log.e(TAG, "add address book");
+            HashMap<String, String> item = new HashMap<String, String>();
+
+            AddressBook addressBook = addressBooks.get(i);
+            item.put("id", "" + i);
+            item.put("displayName", addressBook.displayName);
+            item.put("phoneNumber", addressBook.phoneNumber);
+
+            items.add(item);
+        }
+
+        notifyDataSetChanged();
+    }
 }

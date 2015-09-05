@@ -15,7 +15,7 @@ public class MyApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		GotyeLoginInfoManager.init(this);
+//		GotyeLoginInfoManager.init(this);
 		initImageLoader(getApplicationContext());
 	}
 

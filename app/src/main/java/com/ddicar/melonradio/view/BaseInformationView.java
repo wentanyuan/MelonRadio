@@ -70,12 +70,11 @@ public class BaseInformationView extends AbstractView {
 
             @Override
             public void onClick(View arg0) {
-                MainActivity.instance.switchScreen(ViewFlyweight.MAIN_VIEW);
-                ViewFlyweight.MAIN_VIEW.gotoMyView();
+                goBack();
             }
         });
 
-        avatarContainer = (RelativeLayout) view.findViewById(R.id.avatar);
+        avatarContainer = (RelativeLayout) view.findViewById(R.id.avatar_container);
         avatarContainer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,6 +141,11 @@ public class BaseInformationView extends AbstractView {
         }
     }
 
+    private void goBack() {
+        MainActivity.instance.switchScreen(ViewFlyweight.MAIN_VIEW);
+        ViewFlyweight.MAIN_VIEW.gotoMyView();
+    }
+
     private void adjustUI() {
 
     }
@@ -154,8 +158,7 @@ public class BaseInformationView extends AbstractView {
 
     @Override
     public void onBackPressed() {
-        MainActivity.instance.switchScreen(ViewFlyweight.SOFTWARE_SETTING);
-
+        goBack();
     }
 
     @Override

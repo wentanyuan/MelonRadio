@@ -23,55 +23,73 @@
             android:text="历史运单组"
             android:textSize="13sp" />
 
+
         <RelativeLayout
             android:id="@+id/cancel"
-            android:layout_width="30dp"
-            android:layout_height="30dp">
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical"
-                android:src="@color/dark_tab"
-                android:text="&lt;"
-                android:textSize="13sp" />
+            <ImageView
+                android:layout_width="26.5dp"
+                android:layout_height="13.5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/back_button" />
         </RelativeLayout>
-
     </RelativeLayout>
 
 
-    <LinearLayout
-        android:id="@+id/search_container"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@color/white"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="35dp"
+        android:gravity="center_horizontal">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="right|center_vertical"
-            android:src="@drawable/search_button_2" />
+        <RelativeLayout
+            android:layout_width="330dp"
+            android:layout_height="35dp"
+            android:gravity="center_vertical">
 
-        <EditText
-            android:id="@+id/keyword"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@null"
-            android:ems="10"
-            android:maxLength="20"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/hint_text_color"
-            android:textSize="12sp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
 
-    </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="330dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/white_border_round_rect">
 
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <EditText
+                android:layout_width="330dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="15dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint=""
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="12sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/search_icon" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/history_group_list"

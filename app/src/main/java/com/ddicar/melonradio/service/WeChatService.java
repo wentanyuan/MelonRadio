@@ -90,8 +90,8 @@ public class WeChatService implements Http.Callback {
 //					MainActivity.instance
 //							.switchScreenInHandler(ViewFlyweight.PLAY);
 					
-					ChannelService service = ChannelService.getInstance();
-					service.listChannels();
+//					ChannelService service = ChannelService.getInstance();
+//					service.listChannels();
 
 				} else {
 					String message = (String) state.get("msg");

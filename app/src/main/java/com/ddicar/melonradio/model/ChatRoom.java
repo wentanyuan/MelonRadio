@@ -5,22 +5,30 @@ import org.json.JSONObject;
 
 public class ChatRoom {
 
-	public ChatRoom(JSONObject json) {
+    public ChatRoom(JSONObject json) {
 
-		try {
-			_id = json.getString("_id");
-			roomId = json.getString("roomId");
-			name = json.getString("name");
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+        try {
+            _id = json.getString("_id");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            roomId = json.getString("roomId");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            name = json.getString("name");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-	}
+    }
 
-	public String _id;
+    public String _id;
 
-	public String name;
+    public String name;
 
-	public String roomId;
+    public String roomId;
 
 }

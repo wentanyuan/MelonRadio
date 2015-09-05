@@ -8,11 +8,14 @@ import android.widget.RelativeLayout;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
-import com.ddicar.melonradio.adapter.FriendAdapter;
+import com.ddicar.melonradio.adapter.FriendMessageAdapter;
+import com.ddicar.melonradio.service.FriendManager;
 
 
 public class NewFriendsView extends AbstractView {
 
+
+    private FriendMessageAdapter friendAdapter;
 
     @Override
     public void onSwitchOff() {
@@ -21,7 +24,7 @@ public class NewFriendsView extends AbstractView {
 
     @Override
     public void auto() {
-        RelativeLayout cancel = (RelativeLayout)view.findViewById(R.id.cancel);
+        RelativeLayout cancel = (RelativeLayout) view.findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,7 +33,11 @@ public class NewFriendsView extends AbstractView {
         });
 
         ListView friends = (ListView) view.findViewById(R.id.friends);
-        friends.setAdapter(new FriendAdapter());
+        friendAdapter = new FriendMessageAdapter();
+        friends.setAdapter(friendAdapter);
+
+        FriendManager manager = FriendManager.getInstance();
+        manager.listFriendMessage();
     }
 
     @Override
@@ -61,5 +68,9 @@ public class NewFriendsView extends AbstractView {
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
+    }
+
+    public void render() {
+        friendAdapter.render();
     }
 }

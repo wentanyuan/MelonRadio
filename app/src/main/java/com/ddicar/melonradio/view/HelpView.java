@@ -46,7 +46,7 @@ public class HelpView extends AbstractView {
 			@Override
 			public void onClick(View arg0) {
 				MainActivity.instance
-						.switchScreen(ViewFlyweight.SOFTWARE_SETTING);
+						.switchScreen(ViewFlyweight.SETTINGS);
 			}
 		});
 
@@ -161,7 +161,7 @@ public class HelpView extends AbstractView {
 				.findViewById(R.id.title_bar);
 		adjustTitleBarUnitSize(titleBar);
 
-		// mListView = (ListView) view.findViewById(R.id.list);
+		// mListView = (ListView) view.findViewById(R.id.listChatRooms);
 		// mListView.setAdapter(new HelpListAdapter());
 
 		// mListView = (ExpandableListView) view
@@ -239,7 +239,7 @@ public class HelpView extends AbstractView {
 
 	@Override
 	public void onBackPressed() {
-		MainActivity.instance.switchScreen(ViewFlyweight.SOFTWARE_SETTING);
+		MainActivity.instance.switchScreen(ViewFlyweight.SETTINGS);
 
 	}
 
