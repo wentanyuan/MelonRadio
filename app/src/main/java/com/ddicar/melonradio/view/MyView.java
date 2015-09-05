@@ -87,10 +87,6 @@ public class MyView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     private void adjustUI() {
         Log.e(TAG, "adjustUI");

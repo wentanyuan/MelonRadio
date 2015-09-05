@@ -110,10 +110,6 @@ public class ChangePasswordView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     private class SubmitCallback implements Http.Callback {
 

@@ -81,10 +81,7 @@ public class HomeView extends AbstractView {
 			float velocityY) {
 
 	}
-	
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-	}
+
 
 
 }

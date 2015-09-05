@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
+import com.ddicar.melonradio.model.MessageGroup;
+import com.ddicar.melonradio.service.MessageGroupManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,24 +30,6 @@ public class HistoryGroupAdapter extends BaseAdapter {
     public HistoryGroupAdapter() {
         this.mInflater = LayoutInflater.from(MainActivity.instance);
 
-//        for (int i = 0; i < 5; i++) {
-//            HashMap<String, String> item = new HashMap<String, String>();
-//            item.put("id", String.valueOf(i));
-//            item.put("group", "group");
-//            item.put("name", "[北京-天津]运单群组");
-//            item.put("message", "临时有一批货物，在前方西青区普洛斯物");
-//            items.add(item);
-//        }
-
-    }
-
-    @Override
-    public void registerDataSetObserver(DataSetObserver observer) {
-
-    }
-
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver observer) {
 
     }
 
@@ -64,10 +48,6 @@ public class HistoryGroupAdapter extends BaseAdapter {
         return Long.parseLong(items.get(position).get("id"));
     }
 
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -81,12 +61,34 @@ public class HistoryGroupAdapter extends BaseAdapter {
         TextView name = (TextView) convertView.findViewById(R.id.name);
         name.setText(items.get(position).get("name"));
 
-        TextView message = (TextView) convertView.findViewById(R.id.message);
-        message.setText(items.get(position).get("message"));
+        TextView lastMessage = (TextView) convertView.findViewById(R.id.last_message);
+        lastMessage.setText(items.get(position).get("lastMessage"));
 
         TextView time = (TextView) convertView.findViewById(R.id.time);
         time.setText(items.get(position).get("time"));
 
         return convertView;
+    }
+
+    public void render() {
+        Log.e(TAG, "render");
+        items.clear();
+        MessageGroupManager manager = MessageGroupManager.getInstance();
+        List<MessageGroup> rooms = manager.getMessageGroups();
+
+        for (int index = 0; index < rooms.size(); index++) {
+            MessageGroup messageGroup = rooms.get(index);
+            HashMap<String, String> item = new HashMap<String, String>();
+            item.put("id", String.valueOf(index));
+            item.put("_id", messageGroup._id);
+            item.put("name", messageGroup.name);
+            item.put("time", messageGroup.time);
+            item.put("type", messageGroup.type);
+            //TODO last message.
+            item.put("lastMessage", messageGroup.lastMessage);
+            items.add(item);
+        }
+
+        this.notifyDataSetChanged();
     }
 }

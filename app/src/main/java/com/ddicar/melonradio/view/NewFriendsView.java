@@ -65,10 +65,6 @@ public class NewFriendsView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     public void render() {
         friendAdapter.render();

@@ -37,6 +37,7 @@ public class InvitationView extends AbstractView {
         invitations.setAdapter(invitationAdapter);
 
         InvitationManager invitationManager = InvitationManager.getInstance();
+        invitationManager.listInvitations();
 
     }
 
@@ -65,10 +66,6 @@ public class InvitationView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     public void render() {
         invitationAdapter.render();

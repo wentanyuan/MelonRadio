@@ -1,5 +1,6 @@
 package com.ddicar.melonradio.view;
 
+import android.hardware.SensorEvent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,8 +34,10 @@ public abstract class AbstractView {
 	public abstract void onResume();
 
 	public abstract void onPause();
-	
-	public abstract void onSaveInstanceState(Bundle outState);
+
+	public void onSensorChanged(SensorEvent event) {
+
+    }
 
 	protected void adjustFontSize(TextView view) {
 		adjustFontSize(view, 20);

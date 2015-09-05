@@ -6,6 +6,7 @@ import java.io.IOException;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
@@ -17,13 +18,15 @@ import android.widget.ImageView;
 
 public class PictureUtils {
 
-	public static boolean compressBitmapToFile(Bitmap bitmap, String fileName) {
+    private static final String TAG = "PictureUtils";
+
+    public static boolean compressBitmapToFile(Bitmap bitmap, String fileName) {
 		FileOutputStream fos = null;
 		try {
 			fos = new FileOutputStream(fileName);
 			return bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fos);
 		} catch (IOException e) {
-			Log.e("compressBitmapToFile error", e.getMessage());
+			Log.e(TAG, e.getMessage());
 		} finally {
 			if (fos != null) {
 				try {
@@ -44,6 +47,21 @@ public class PictureUtils {
 		BitmapDrawable b = (BitmapDrawable) imageView.getDrawable();
 		b.getBitmap().recycle();
 		imageView.setImageDrawable(null);
+	}
+
+	public static Bitmap rotateBitmap(Bitmap bm, final int orientationDegree) {
+
+		Matrix m = new Matrix();
+		m.setRotate(orientationDegree, (float) bm.getWidth() / 2, (float) bm.getHeight() / 2);
+
+		try {
+			Bitmap bm1 = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), m, true);
+			return bm1;
+		} catch (OutOfMemoryError ex) {
+		}
+
+		return null;
+
 	}
 
 	public static Bitmap toRoundCorner(Bitmap bitmap, int pixels) {

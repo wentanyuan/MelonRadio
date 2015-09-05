@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
+import com.ddicar.melonradio.model.User;
 import com.ddicar.melonradio.service.CaptchaService;
+import com.ddicar.melonradio.service.UserManager;
 import com.ddicar.melonradio.util.StringUtil;
 
 import java.util.Timer;
@@ -98,7 +100,6 @@ public class ForgetPasswordView extends AbstractView {
                 MainActivity.instance.hideKeyboard();
                 phoneNumberText = phoneNumber.getText().toString();
                 String captchaText = captchaCode.getText().toString();
-//                passwordText = password.getText().toString();
 
                 if (StringUtil.isNullOrEmpty(phoneNumberText)) {
                     MainActivity.instance.showMessage("请输入手机号");
@@ -109,10 +110,6 @@ public class ForgetPasswordView extends AbstractView {
                     MainActivity.instance.showMessage("请输入验证码");
                     return;
                 }
-//                if (StringUtil.isNullOrEmpty(passwordText)) {
-//                    MainActivity.instance.showMessage("请输入新密码");
-//                    return;
-//                }
 
                 CaptchaService service = CaptchaService.getInstance();
                 service.submitCaptcha(phoneNumberText, captchaText,
@@ -125,41 +122,16 @@ public class ForgetPasswordView extends AbstractView {
     private void adjustUI() {
         back = (TextView) view.findViewById(R.id.button_back);
 
-
         phoneNumber = (EditText) view.findViewById(R.id.phone_number);
-
 
         captchaCode = (EditText) view.findViewById(R.id.captcha_code);
 
         gainCaptchaMiddle = (TextView) view.findViewById(R.id.gain_captcha);
 
-
-
     }
 
-    // Thread thread = new Thread() {
-    //
-    // public void run() {
-    // int count = 0;
-    // while (count < 61) {
-    // try {
-    //
-    // Message message = new Message();
-    // message.what = UPDATE_TIMER;
-    // message.arg1 = count;
-    // mHandler.sendMessage(message);
-    //
-    // sleep(1000);
-    // count++;
-    // } catch (InterruptedException e) {
-    // e.printStackTrace();
-    // }
-    // }
-    // }
-    // };
 
     private void startCountingDown() {
-        // thread.start();
 
         Timer timer = new Timer(true);
 
@@ -184,7 +156,6 @@ public class ForgetPasswordView extends AbstractView {
 
     }
 
-    ;
 
     @Override
     public void onFling(MotionEvent start, MotionEvent end, float velocityX,
@@ -213,151 +184,8 @@ public class ForgetPasswordView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-    }
 
 
-//	@Override
-//	public void run() {
-//		Log.e(TAG, "call back from captcha ");
-//		// Http http = Http.getInstance();
-//		//
-//		// http.setCallback(ForgetPasswordView.this);
-//		//
-//		// String url = "users/resetPassword";
-//		//
-//		// Map<String, Object> params = new HashMap<String, Object>();
-//		// params.put("phone", phoneNumberText);
-//		// params.put("newPassword", passwordText);
-//		//
-//		// http.post(Http.SERVER + url, params);
-//
-//		String url = "users/resetPassword";
-//		AsyncHttpClient client = new AsyncHttpClient();
-//		RequestParams params = new RequestParams();
-//		params.put("newpassword", passwordText);
-//		params.put("phone", phoneNumberText);
-//		client.post(Http.SERVER + url, params, new JsonHttpResponseHandler() {
-//			@Override
-//			public void onSuccess(int statusCode, Header[] headers,
-//					JSONObject response) {
-//				super.onSuccess(statusCode, headers, response);
-//				Log.e(TAG, "onSuccess");
-//				Log.e(TAG, response.toString());
-//
-//				JSONObject state;
-//				try {
-//					state = (JSONObject) response.get("state");
-//
-//					if (state != null) {
-//						Boolean success = (Boolean) state.get("success");
-//						if (success) {
-//
-//							// JSONObject data = (JSONObject)
-//							// response.get("data");
-//							// User user = new User(data);
-//							// UserManager mgr = UserManager.getInstance();
-//							// mgr.setUser(user);
-//
-//							mHandler.sendEmptyMessage(CLEAR_TEXT);
-//
-//							// MainActivity.instance
-//							// .switchScreenInHandler(ViewFlyweight.LOGIN);
-//
-//							AlertDialog.Builder builder = new AlertDialog.Builder(
-//									MainActivity.instance);
-//
-//							final AlertDialog dialog = builder
-//									.setTitle("提示")
-//									.setMessage("密码已经修改")
-//									.setPositiveButton(
-//											"确定",
-//											new DialogInterface.OnClickListener() {
-//
-//												@Override
-//												public void onClick(
-//														DialogInterface dialog,
-//														int which) {
-//													dialog.dismiss();
-//													MainActivity.instance
-//															.switchScreenInHandler(ViewFlyweight.LOGIN);
-//												}
-//											}).create();
-//
-//							dialog.show();
-//
-//							TimerTask tt = new TimerTask() {
-//								@Override
-//								public void run() {
-//									if (dialog != null) {
-//										dialog.dismiss();
-//										MainActivity.instance
-//												.switchScreenInHandler(ViewFlyweight.LOGIN);
-//									}
-//								}
-//							};
-//							Timer timer = new Timer(true);
-//							timer.schedule(tt, 2000, 2000);
-//						} else {
-//							String message = (String) state.get("msg");
-//							MainActivity.instance.showMessage(message);
-//						}
-//					}
-//
-//				} catch (JSONException e) {
-//					Log.e(TAG, e.getMessage());
-//					e.printStackTrace();
-//				}
-//			}
-//
-//			@Override
-//			public void onFailure(int statusCode, Header[] headers,
-//					Throwable throwable, JSONObject errorResponse) {
-//				super.onFailure(statusCode, headers, throwable, errorResponse);
-//				Log.e(TAG, "onFailure");
-//			}
-//		});
-//	}
-
-    // @Override
-    // public void onResponse(JSONObject jsonObject) {
-    // System.out.println(jsonObject);
-    //
-    // JSONObject state;
-    // try {
-    // state = (JSONObject) jsonObject.get("state");
-    //
-    // if (state != null) {
-    // Boolean success = (Boolean) state.get("success");
-    // if (success) {
-    //
-    // JSONObject data = (JSONObject) jsonObject.get("data");
-    // User user = new User(data);
-    // UserManager mgr = UserManager.getInstance();
-    // mgr.setUser(user);
-    //
-    // mHandler.sendEmptyMessage(CLEAR_TEXT);
-    //
-    // MainActivity.instance
-    // .switchScreenInHandler(ViewFlyweight.LOGIN);
-    // } else {
-    // String message = (String) state.get("msg");
-    // MainActivity.instance.showMessage(message);
-    // }
-    // }
-    //
-    // } catch (JSONException e) {
-    // e.printStackTrace();
-    // }
-    //
-    // }
-
-    // @Override
-    // public void setWebException(WebException webException) {
-    // MainActivity.instance.showMessage("访问服务器出现错误了");
-    //
-    // }
 
     Handler mHandler = new Handler() {
 
@@ -372,7 +200,6 @@ public class ForgetPasswordView extends AbstractView {
 
                     if (number > 0) {
                         gainCaptchaMiddle.setTextColor(Color.GRAY);
-                        gainCaptchaMiddle.setTextSize(16);
                         gainCaptchaClickable = false;
                     } else {
                         gainCaptchaMiddle.setText("获取验证码");
@@ -385,7 +212,6 @@ public class ForgetPasswordView extends AbstractView {
                 case CLEAR_TEXT:
                     phoneNumber.setText("");
                     captchaCode.setText("");
-//                    password.setText("");
                     break;
             }
         }
@@ -395,6 +221,10 @@ public class ForgetPasswordView extends AbstractView {
     private class ForgetPasswordCallback implements CaptchaService.Callback {
         @Override
         public void run() {
+            UserManager userManager = UserManager.getInstance();
+            User user = new User();
+            user.phone = phoneNumber.getText().toString();
+            userManager.setUser(user);
             MainActivity.instance.switchScreen(ViewFlyweight.RESET_PASSWORD);
         }
     }

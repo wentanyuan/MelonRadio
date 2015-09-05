@@ -3,7 +3,8 @@ package com.ddicar.melonradio.service;
 import android.util.Log;
 
 import com.ddicar.melonradio.MainActivity;
-import com.ddicar.melonradio.model.GroupMessage;
+import com.ddicar.melonradio.model.HistoryGroup;
+import com.ddicar.melonradio.model.MessageGroup;
 import com.ddicar.melonradio.view.ViewFlyweight;
 import com.ddicar.melonradio.web.Http;
 import com.ddicar.melonradio.web.WebException;
@@ -18,48 +19,57 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Stephen on 15/9/4.
+ * Created by Stephen on 15/9/5.
  */
-public class GroupMessageManager {
-
-    private static final String TAG = "GroupMessageManager";
-
-    private static GroupMessageManager instance = null;
-
-    List<GroupMessage> messages = new ArrayList<GroupMessage>();
+public class HistoryGroupManager {
 
 
-    public static GroupMessageManager getInstance() {
+    private static final String TAG = "HistoryGroupManager";
+    private static HistoryGroupManager instance = null;
+
+    private List<MessageGroup> messageGroups = new ArrayList<MessageGroup>();
+
+    public static HistoryGroupManager getInstance() {
         if (instance == null) {
-            instance = new GroupMessageManager();
+            instance = new HistoryGroupManager();
         }
-
         return instance;
     }
 
-    public void listMessages() {
-        Log.e(TAG,"listMessages");
+    public void listMessageGroups() {
+
         Http http = Http.getInstance();
-        http.setCallback(new MessageCallback());
+
+        http.setCallback(new HistoryGroupCallback());
 
         UserManager manager = UserManager.getInstance();
-
-        String url = "users/messages/" + manager.getUser()._id;
+        String url = "users/history_groups/" + manager.getUser()._id;
 
         Map<String, String> params = new HashMap<String, String>();
 
         http.get(Http.SERVER() + url, params);
     }
 
-    public List<GroupMessage> getGroupMessages() {
-        return messages;
+    public List<MessageGroup> getMessageGroups() {
+        return messageGroups;
     }
 
+    public MessageGroup getMessageGroup(int position) {
+        return messageGroups.get(position);
+    }
 
-    private class MessageCallback implements Http.Callback {
+    public void clear() {
+        messageGroups.clear();
+    }
+
+    public void addMessageGroups(MessageGroup messageGroup) {
+        messageGroups.add(messageGroup);
+    }
+
+    private class HistoryGroupCallback implements Http.Callback {
+
         @Override
         public void onResponse(JSONObject jsonObject) {
-
             Log.e(TAG, jsonObject.toString());
 
             JSONObject state;
@@ -68,15 +78,16 @@ public class GroupMessageManager {
                 if (state != null) {
                     Boolean success = (Boolean) state.get("success");
                     if (success) {
-                        JSONArray messages = (JSONArray) jsonObject.get("data");
-
+                        JSONArray MessageGroups = (JSONArray) jsonObject.get("data");
                         clear();
-                        for (int i = 0; i < messages.length(); i++) {
-                            JSONObject json = messages.getJSONObject(i);
-                            addMessage(new GroupMessage(json));
+                        for (int i = 0; i < MessageGroups.length(); i++) {
+                            JSONObject json = MessageGroups.getJSONObject(i);
+                            addMessageGroups(new MessageGroup(json));
                         }
 
-                        ViewFlyweight.INFORMATION_DETAIL_VIEW.renderMessage();
+                        ViewFlyweight.HISTORY_GROUP.render();
+
+
                     } else {
                         String message = (String) state.get("msg");
                         MainActivity.instance.showMessage(message);
@@ -90,17 +101,7 @@ public class GroupMessageManager {
         @Override
         public void setWebException(WebException webException) {
             MainActivity.instance.showMessage("访问服务器出现错误了");
-
         }
-    }
 
-    private void addMessage(GroupMessage message) {
-        Log.e(TAG,"addMessage");
-        messages.add(message);
-    }
-
-    private void clear() {
-        Log.e(TAG,"clear");
-        messages.clear();
     }
 }

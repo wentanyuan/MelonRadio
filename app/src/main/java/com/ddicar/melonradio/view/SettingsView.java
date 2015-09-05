@@ -76,8 +76,4 @@ public class SettingsView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 }

@@ -97,9 +97,7 @@ public class AboutView extends AbstractView {
 	public void onPause() {
 
 	}
-	
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-	}
+
+
 
 }

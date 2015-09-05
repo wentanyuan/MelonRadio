@@ -120,10 +120,6 @@ public class ContactListView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     public void render() {
         contactAdapter.render();

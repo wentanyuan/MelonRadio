@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 import com.ddicar.melonradio.adapter.HistoryGroupAdapter;
+import com.ddicar.melonradio.service.HistoryGroupManager;
 
 
 public class HistoryGroupView extends AbstractView {
@@ -18,6 +19,7 @@ public class HistoryGroupView extends AbstractView {
 
     private static final String TAG = "HistoryGroupView";
     private ListView histories;
+    private HistoryGroupAdapter historyGroupAdapter;
 
     @Override
     public void onSwitchOff() {
@@ -35,13 +37,21 @@ public class HistoryGroupView extends AbstractView {
         });
 
         histories = (ListView) view.findViewById(R.id.history_group_list);
-        histories.setAdapter(new HistoryGroupAdapter());
+        historyGroupAdapter = new HistoryGroupAdapter();
+        histories.setAdapter(historyGroupAdapter);
         histories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.e(TAG, "history_list clicked");
+                MainActivity.instance.switchScreen(ViewFlyweight.INFORMATION_DETAIL_VIEW);
+                //TODO this position is not as same as information's position.
+                ViewFlyweight.INFORMATION_DETAIL_VIEW.render(position);
             }
         });
+
+        HistoryGroupManager historyGroupManager = HistoryGroupManager.getInstance();
+        historyGroupManager.listMessageGroups();
+
     }
 
     @Override
@@ -69,8 +79,9 @@ public class HistoryGroupView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
 
+    public void render() {
+        Log.e(TAG, "render");
+        historyGroupAdapter.render();
     }
 }

@@ -85,6 +85,7 @@ public class MessageGroupAdapter extends BaseAdapter {
     }
 
     public void render() {
+        Log.e(TAG, "render");
         items.clear();
         MessageGroupManager manager = MessageGroupManager.getInstance();
         List<MessageGroup> rooms = manager.getMessageGroups();

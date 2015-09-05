@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Rect;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -47,11 +48,10 @@ public class MainActivity extends Activity implements OnGestureListener,
 		OnTouchListener, IWXAPIEventHandler {
 
 	private static final String TAG = "MainActivity";
+	public static final String IMAGE_UNSPECIFIED = "image/*";
 
 	public static MainActivity instance;
 
-	// public string for taking a photo
-	public static String mPhotoPath;
 
 	public static final int MESSAGE = 0xf000;
 
@@ -265,12 +265,13 @@ public class MainActivity extends Activity implements OnGestureListener,
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 
 		int screenWidth = dm.widthPixels;
-
 		int screenHeight = dm.heightPixels;
-
 		int densityDpi = dm.densityDpi;
 
-		return new int[] { screenWidth, screenHeight, densityDpi };
+		Rect outRect = new Rect();
+		this.getWindow().getDecorView().getWindowVisibleDisplayFrame(outRect);
+
+		return new int[] { screenWidth, screenHeight, densityDpi, outRect.left, outRect.top, outRect.width(), outRect.height() };
 	}
 
 	public Handler mHandler = new Handler() {
@@ -364,39 +365,38 @@ public class MainActivity extends Activity implements OnGestureListener,
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		System.out.println("onActivityResult : " + requestCode);
 
+        UserManager userManager = UserManager.getInstance();
+        String filePath = userManager.getUser().pic;
+
 		switch (requestCode) {
 		// 调用相机拍照时
 		case PHOTO_CAMERA:
-//			if (null != mPhotoPath) {
-				startPhotoZoom(Uri.fromFile(new File(mPhotoPath)));
-//				mPhotoPath = null;
-//			} else {
-//				switchScreen(ViewFlyweight.PERSONAL);
-//			}
+			if (null != filePath) {
+				startPhotoZoom(Uri.fromFile(new File(filePath)));
+			} else {
+				switchScreen(ViewFlyweight.BASE_INFORMATION);
+			}
 			break;
 		// 取得裁剪后的图片
 		case PHOTO_CLIP:
-//			if (null != data) {
-//				ViewFlyweight.PERSONAL.setPicToView(data);
-//				mPhotoPath = null;
-//			} else {
-//				switchScreen(ViewFlyweight.PERSONAL);
-//			}
+			if (null != data) {
+				ViewFlyweight.BASE_INFORMATION.setPicToView(data);
+			} else {
+				switchScreen(ViewFlyweight.BASE_INFORMATION);
+			}
 			break;
 		// 如果是直接从相册获取
 		case PHOTO_ALBUM:
 			if (data != null) {
 				Uri imageUri = data.getData();
 				if (imageUri != null) {
-					// UserManager manager = UserManager.getInstance();
-					// TODO
-					// manager.refreshPhoto(uri);
+//					 UserManager manager = UserManager.getInstance();
+//					 manager.refreshPhoto(uri);
 					startPhotoZoom(imageUri);
 				}
 			}
 			break;
 		}
-		// switchScreen(ViewFlyweight.PERSONAL);
 	}
 
 	/**

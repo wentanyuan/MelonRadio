@@ -97,10 +97,6 @@ public class CreateChatRoomView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     private class ChatRoomCallback implements Http.Callback {
 

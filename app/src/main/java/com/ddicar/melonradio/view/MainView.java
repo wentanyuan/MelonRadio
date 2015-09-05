@@ -177,9 +177,4 @@ public class MainView extends AbstractView {
     public void onPause() {
 
     }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 }

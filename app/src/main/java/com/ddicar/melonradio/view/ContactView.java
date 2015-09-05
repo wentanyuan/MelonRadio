@@ -99,10 +99,6 @@ public class ContactView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     public void render(int position) {
         ContactManager manager = ContactManager.getInstance();

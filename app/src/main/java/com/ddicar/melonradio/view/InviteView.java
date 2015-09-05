@@ -10,10 +10,14 @@ import android.widget.TextView;
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 import com.ddicar.melonradio.adapter.InviteAdapter;
+import com.ddicar.melonradio.service.InvitationManager;
+import com.ddicar.melonradio.service.InviteManager;
 
 
 public class InviteView extends AbstractView {
 
+
+    private InviteAdapter inviteContactAdapter;
 
     @Override
     public void onSwitchOff() {
@@ -40,7 +44,7 @@ public class InviteView extends AbstractView {
 
         ListView contactList = (ListView) view.findViewById(R.id.list_contacts);
 
-        InviteAdapter inviteContactAdapter = new InviteAdapter();
+        inviteContactAdapter = new InviteAdapter();
         contactList.setAdapter(inviteContactAdapter);
 
         contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -49,6 +53,9 @@ public class InviteView extends AbstractView {
                 MainActivity.instance.switchScreen(ViewFlyweight.CHAT_ROOM);
             }
         });
+
+        InviteManager inviteManager = InviteManager.getInstance();
+        inviteManager.listInvites();
     }
 
     @Override
@@ -76,8 +83,8 @@ public class InviteView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
 
+    public void render() {
+        inviteContactAdapter.render();
     }
 }

@@ -41,7 +41,6 @@ public class ViewFlyweight {
     public static final InviteView INVITE = new InviteView();
     public static final VerificationView VERIFICATION = new VerificationView();
 
-
     public static final NewFriendsView NEW_FRIENDS = new NewFriendsView();
     public static final InvitationView INVITATION = new InvitationView();
     public static final HistoryGroupView HISTORY_GROUP = new HistoryGroupView();
@@ -72,7 +71,6 @@ public class ViewFlyweight {
 
 
 		REGISTER.init(R.layout.register);
-
 
 
 		BASE_INFORMATION.init(R.layout.base_information);

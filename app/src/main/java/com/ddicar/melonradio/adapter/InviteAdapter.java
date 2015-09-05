@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
+import com.ddicar.melonradio.model.Invite;
+import com.ddicar.melonradio.service.InviteManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,19 +22,12 @@ import java.util.List;
 public class InviteAdapter extends BaseAdapter {
 
 
-    private static final String TAG = "InviteContactAdapter";
+    private static final String TAG = "InviteAdapter";
     private LayoutInflater mInflater;
     List<HashMap<String, String>> items = new ArrayList<HashMap<String, String>>();
 
     public InviteAdapter() {
         this.mInflater = LayoutInflater.from(MainActivity.instance);
-
-//        for (int i = 0; i < 5; i++) {
-//            HashMap<String, String> item = new HashMap<String, String>();
-//            item.put("id", String.valueOf(i));
-//            item.put("name", "黄宇");
-//            items.add(item);
-//        }
 
     }
 
@@ -57,9 +52,35 @@ public class InviteAdapter extends BaseAdapter {
         convertView = mInflater.inflate(R.layout.contact_item, null);
 
         TextView name = (TextView) convertView.findViewById(R.id.name);
-        name.setText(items.get(position).get("name"));
+        name.setText(items.get(position).get("hostName"));
 
         return convertView;
     }
 
+    public void render() {
+        InviteManager inviteManager = InviteManager.getInstance();
+        List<Invite> Invites = inviteManager.getInvites();
+
+        items.clear();
+
+        for (int i = 0; i < Invites.size(); i++) {
+            Invite Invite = Invites.get(i);
+
+            HashMap<String, String> item = new HashMap<String, String>();
+
+            item.put("id", String.valueOf(i));
+            item.put("_id", Invite._id);
+            item.put("hostId", Invite.hostId);
+            item.put("hostAvatar", Invite.hostAvatar);
+            item.put("hostName", Invite.hostName);
+            item.put("chatRoomId", Invite.chatRoomId);
+            item.put("roomName", Invite.roomName);
+            item.put("accepted", String.valueOf(Invite.accepted));
+
+            items.add(item);
+        }
+
+        notifyDataSetChanged();
+
+    }
 }

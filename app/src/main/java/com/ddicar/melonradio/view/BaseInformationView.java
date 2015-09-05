@@ -1,6 +1,9 @@
 package com.ddicar.melonradio.view;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,9 +15,14 @@ import android.widget.TextView;
 import com.ddicar.melonradio.MainActivity;
 import com.ddicar.melonradio.R;
 import com.ddicar.melonradio.service.UserManager;
+import com.ddicar.melonradio.util.AndroidUtil;
+import com.ddicar.melonradio.util.StringUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+
+import java.io.File;
 
 public class BaseInformationView extends AbstractView {
     private static final String TAG = "BaseInformationView";
@@ -39,13 +47,14 @@ public class BaseInformationView extends AbstractView {
     private TextView model;
     private TextView parameters;
     private ImageView avatar;
+    private Intent picToView;
 
     public  BaseInformationView() {
 
         try {
             imageLoader = ImageLoader.getInstance();
-//			imageLoader.init(ImageLoaderConfiguration
-//					.createDefault(MainFragmentView.instance));
+			imageLoader.init(ImageLoaderConfiguration
+					.createDefault(MainActivity.instance));
 
             options = new DisplayImageOptions.Builder().cacheInMemory(true)
                     .displayer(new RoundedBitmapDisplayer(500)).build();
@@ -95,7 +104,7 @@ public class BaseInformationView extends AbstractView {
         parameters = (TextView) view.findViewById(R.id.parameters);
 
 
-        UserManager userManager = UserManager.getInstance();
+        final UserManager userManager = UserManager.getInstance();
         name.setText(userManager.getUser().name);
         phone.setText(userManager.getUser().phone);
         team.setText(userManager.getUser().team.name);
@@ -111,6 +120,20 @@ public class BaseInformationView extends AbstractView {
             @Override
             public void onClick(View v) {
                 dialog.setVisibility(View.INVISIBLE);
+
+
+                if(StringUtil.isNullOrEmpty(userManager.getUser().pic)) {
+                    userManager.getUser().pic = AndroidUtil.getSaveFolder() + "/avatar.jpg";
+                }
+
+                Intent intentCamera = new Intent(
+                        MediaStore.ACTION_IMAGE_CAPTURE);
+                // 下面这句指定调用相机拍照后的照片存储的路径
+                intentCamera.putExtra(MediaStore.EXTRA_OUTPUT,
+                        Uri.fromFile(new File(userManager.getUser().pic)));
+                MainActivity.instance.startActivityForResult(intentCamera,
+                        MainActivity.PHOTO_CAMERA);
+
             }
         });
 
@@ -119,6 +142,14 @@ public class BaseInformationView extends AbstractView {
             @Override
             public void onClick(View v) {
                 dialog.setVisibility(View.INVISIBLE);
+
+                Intent intent = new Intent(Intent.ACTION_PICK, null);
+                intent.setDataAndType(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        MainActivity.IMAGE_UNSPECIFIED);
+                MainActivity.instance.startActivityForResult(intent,
+                        MainActivity.PHOTO_ALBUM);
+
             }
         });
 
@@ -176,8 +207,7 @@ public class BaseInformationView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void setPicToView(Intent picToView) {
+//        this.picToView = picToView;
     }
-
 }

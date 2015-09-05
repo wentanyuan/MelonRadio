@@ -76,10 +76,6 @@ public class InformationDetailView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     public void render(int position) {
         Log.e(TAG, "render");

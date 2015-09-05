@@ -69,10 +69,6 @@ public class AddFromPhoneBookView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     public void render() {
         Log.e(TAG, "render");

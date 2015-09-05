@@ -459,9 +459,6 @@ public class RegisterView extends AbstractView implements Http.Callback,
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-    }
 
     @Override
     public void onResponse(JSONObject jsonObject) {

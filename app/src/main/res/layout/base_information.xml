@@ -70,21 +70,26 @@
 
 
                 <RelativeLayout
-                    android:id="@+id/avatar_container"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_marginRight="5dp"
-                    android:background="@drawable/user_image_gray_rect">
+                    android:layout_marginRight="5dp">
 
-                    <ImageView
-                        android:id="@+id/avatar"
-                        android:layout_width="44dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_horizontal|center_vertical"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/channel_empty" />
+                    <RelativeLayout
+                        android:id="@+id/avatar_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/user_image_gray_rect">
+
+                        <ImageView
+                            android:id="@+id/avatar"
+                            android:layout_width="44dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/channel_empty" />
+                    </RelativeLayout>
                 </RelativeLayout>
             </RelativeLayout>
 

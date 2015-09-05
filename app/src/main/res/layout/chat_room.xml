@@ -55,22 +55,23 @@
         android:layout_width="match_parent"
         android:layout_height="0.33dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="45dp"
         android:background="@color/gray" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:background="@color/super_light_gray"
         android:orientation="horizontal">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_horizontal|center_vertical">
-
+            android:orientation="vertical"
+            android:layout_marginTop="3dp"
+            >
 
             <RelativeLayout
                 android:layout_width="120dp"
@@ -78,41 +79,59 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/hf_on" />
 
             </RelativeLayout>
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="免提"
+                android:textColor="@color/chat_room_green"
+                android:textSize="11sp"
+                android:gravity="center_horizontal"
+                />
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_horizontal">
+            android:background="@drawable/round_speaker_selected"
+            android:orientation="vertical"
+            android:layout_marginTop="3dp">
 
             <RelativeLayout
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/round_speaker_selected"
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/speak_icon" />
             </RelativeLayout>
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="点击关闭"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:gravity="center_horizontal"
+                />
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_horizontal|center_vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="3dp">
 
             <RelativeLayout
                 android:layout_width="120dp"
@@ -120,11 +139,20 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/silent_off" />
             </RelativeLayout>
-        </RelativeLayout>
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="静音"
+                android:textColor="@color/gray"
+                android:textSize="11sp"
+                android:gravity="center_horizontal"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>

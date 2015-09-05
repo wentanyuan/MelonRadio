@@ -12,6 +12,7 @@ import com.ddicar.melonradio.R;
 import com.ddicar.melonradio.web.Http;
 import com.ddicar.melonradio.web.WebException;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -90,11 +91,6 @@ public class FeedbackView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
-
     private class SubmitCallback implements Http.Callback {
 
         private final static String TAG = "SubmitCallback";
@@ -104,6 +100,23 @@ public class FeedbackView extends AbstractView {
             Log.e(TAG, jsonObject.toString());
 
             feedbackText.setText("");
+
+            JSONObject state;
+            try {
+                state = (JSONObject) jsonObject.get("state");
+                if (state != null) {
+                    Boolean success = (Boolean) state.get("success");
+                    if (success) {
+                        MainActivity.instance.showMessage("提交反馈成功");
+                    } else {
+                        String message = (String) state.get("msg");
+                        MainActivity.instance.showMessage(message);
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         }
 
         @Override

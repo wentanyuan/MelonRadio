@@ -85,8 +85,4 @@ public class VerificationView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 }

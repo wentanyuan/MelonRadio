@@ -232,9 +232,6 @@ public class LoginView extends AbstractView implements Callback {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-    }
 
 
     public class LoginCallback implements Http.Callback {

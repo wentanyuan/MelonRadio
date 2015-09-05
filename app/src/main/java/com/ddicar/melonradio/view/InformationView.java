@@ -177,10 +177,6 @@ public class InformationView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 
     public void renderChatRoom() {
         chatRoomAdapter.render();

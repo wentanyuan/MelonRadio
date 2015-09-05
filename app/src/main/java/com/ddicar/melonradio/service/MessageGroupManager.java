@@ -99,8 +99,8 @@ public class MessageGroupManager implements Http.Callback {
         messageGroups.clear();
     }
 
-    public void addMessageGroups(MessageGroup room) {
-        messageGroups.add(room);
+    public void addMessageGroups(MessageGroup messageGroup) {
+        messageGroups.add(messageGroup);
     }
 
 }

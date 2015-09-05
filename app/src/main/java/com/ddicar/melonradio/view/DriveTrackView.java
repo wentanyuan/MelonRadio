@@ -57,8 +57,4 @@ public class DriveTrackView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 }

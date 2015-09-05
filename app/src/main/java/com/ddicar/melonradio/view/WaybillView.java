@@ -134,8 +134,4 @@ public class WaybillView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 }

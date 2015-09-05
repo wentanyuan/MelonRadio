@@ -64,8 +64,4 @@ public class AddContactView extends AbstractView {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-
-    }
 }
